@@ -1,0 +1,235 @@
+"Intervention Type","country","vaccine","author1","publicationyear","effectsize"
+"Communications","USA","Immunization series completion by 24 months","Dini et al.",2000,8.3
+"Communications","USA","Influenza; Pneumococcal","Krieger et al.",2000,21.1
+"Communications","USA","Childhood immunizations","Vivier et al.",2000,12.5
+"Communications","USA","Childhood immunizations","Vivier et al.",2000,21.5
+"Communications","USA","Childhood immunizations","Vivier et al.",2000,14.8
+"Communications","UK","Influenza","Arthur et al.",2002,6.4
+"Communications","USA","Influenza","Ahmed et al.",2004,4
+"Communications","Spain","Tetanus-diphtheria","Ibáñez-Jiménez et al.",2007,18.3
+"Communications","USA","Pneumococcal (elderly)","Winston et al.",2007,9
+"Communications","USA","Pneumococcal (chronic)","Winston et al.",2007,10
+"Communications","USA","Influenza","Doratotaj et al.",2008,0
+"Communications","Israel","Influenza","Abramson et al.",2010,26.3
+"Communications","USA","Influenza","Chapman et al.",2010,12
+"Communications","USA","Influenza","Minor et al.",2010,13
+"Communications","USA","Influenza","Minor et al.",2010,23
+"Communications","USA","Influenza","Humiston et al.",2011,42
+"Communications","USA","Influenza","Milkman et al.",2011,4
+"Communications","USA","HPV second dose","Szilagyi et al.",2011,15.8
+"Communications","USA","HPV initiation","Szilagyi et al.",2011,15.6
+"Communications","USA","TDAP","Szilagyi et al.",2011,12.1
+"Communications","USA","HPV third dose","Szilagyi et al.",2011,12.4
+"Communications","USA","Meningococcus; Pertussis; TDAP","Szilagyi et al.",2011,14.3
+"Communications","USA","Influenza","Dombkowski et al.",2012,6.5
+"Communications","USA","At least one of: TDAP; HPV; Meningococcal conjugate","Suh et al.",2012,12.5
+"Communications","USA","All of: TDAP; HPV; Meningococcal conjugate","Suh et al.",2012,11
+"Communications","USA","Herpes zoster","Hess",2013,1.88
+"Communications","USA","Influenza","Moniz et al.",2013,0
+"Communications","USA","Meningococcus; Pertussis; HPV","Szilagyi et al.",2013,2
+"Communications","USA","Meningococcus; Pertussis; HPV","Szilagyi et al.",2013,5
+"Communications","USA","Childhood immunizations (19-month olds)","Dombkowski et al.",2014,7
+"Communications","USA","Childhood immunizations (7-month olds)","Dombkowski et al.",2014,0
+"Communications","USA","Childhood immunizations (12-month olds)","Dombkowski et al.",2014,0
+"Communications","USA","HPV completion","Patel et al.",2014,0
+"Communications","Zimbabwe","OPV1, Penta1 and PCV1","Bangure et al.",2015,20
+"Communications","USA","HPV completion","Chao et al.",2015,9.8
+"Communications","Beirut","Pneumococcal","Ghadieh et al.",2015,15.4
+"Communications","Beirut","Pneumococcal","Ghadieh et al.",2015,4.6
+"Communications","Beirut","Pneumococcal","Ghadieh et al.",2015,6.1
+"Communications","USA","Influenza","Hofstetter et al.",2015,3.7
+"Communications","USA","Influenza","Hofstetter et al.",2015,0
+"Communications","USA","Any vaccination","O'Leary et al.",2015,5.2
+"Communications","USA","All necessary vaccines","O'Leary et al.",2015,3.1
+"Communications","USA","Influenza","Stockwell et al.",2015,3.7
+"Communications","China","Full immunisation (5 vaccines)","Chen et al.",2016,0
+"Communications","UK","Influenza","Herrett et al.",2016,0
+"Communications","Netherlands","Influenza","Lehmann et al.",2016,0
+"Communications","Netherlands","Influenza","Lehmann et al.",2016,0
+"Communications","Bangladesh","BCG; Penta3; MR","Uddin et al.",2016,29.5
+"Communications","USA","Childhood immunizations","Glanz et al.",2017,0
+"Communications","USA","Childhood immunizations","Glanz et al.",2017,5.9
+"Communications","USA","Eligible child receiving any vaccine","Kempe et al.",2017,5
+"Communications","Australia","Influenza","Regan et al.",2017,3
+"Communications","USA","Influenza","Yudin et al.",2017,0
+"Communications","Australia","Influenza","Borg et al.",2018,1.5
+"Communications","USA","Influenza (over-65s)","Hurley et al.",2018,3.4
+"Communications","USA","Influenza (no high risk adults)","Hurley et al.",2018,0
+"Communications","USA","Influenza (high-risk adults)","Hurley et al.",2018,0
+"Communications","USA","Influenza","Yokum et al.",2018,0.9
+"Communications","USA","HPV","Dempsey et al.",2019,0
+"Communications","USA","Influenza","Nehme et al.",2019,0
+"Communications","USA","Influenza","Nehme et al.",2019,2.5
+"Communications","USA","TDAP","O'Leary et al.",2019,0
+"Communications","USA","Influenza","O'Leary et al.",2019,21
+"Communications","USA","Influenza","O'Leary et al.",2019,19
+"Communications","USA","TDAP","O'Leary et al.",2019,0
+"Communications","USA","Pneumococcal vaccination; herpes zoster","Stolpe et al.",2019,0
+"Communications","Australia","HPV","Tull et al.",2019,3.29
+"Communications","Australia","HPV","Tull et al.",2019,2.64
+"Communications","USA","Influenza; Tetanus; Shingles; Pneumonia","Chen et al.",2020,0.15
+"Communications","USA","Influenza; Tetanus; Shingles; Pneumonia","Chen et al.",2020,0.27
+"Communications","USA","Influenza; Tetanus; Shingles; Pneumonia","Chen et al.",2020,0.06
+"Communications","Nigeria","Childhood immunizations","Kawakatsu et al.",2020,5
+"Communications","USA","Influenza","Lee et al.",2020,1.2
+"Communications","Hong Kong","Influenza","Liao et al.",2020,0
+"Communications","USA","HPV initiation (Colorado)","Szilagyi et al.",2020,2.3
+"Communications","USA","HPV initiation (New York)","Szilagyi et al.",2020,0
+"Communications","USA","Influenza","Wijesundara et al.",2020,0
+"Communications","USA","Influenza","Wijesundara et al.",2020,1.3
+"Communications","France","Influenza","Barbaroux et al.",2021,0
+"Communications","Canada","HPV","Bernard-Genest et al.",2021,0
+"Communications","USA","COVID-19","Dai et al.",2021,3.57
+"Communications","USA","HPV series intitiation","Gerend et al.",2021,12.8
+"Communications","USA","HPV initiation (New York)","Gurfinkel et al.",2021,0
+"Communications","USA","HPV completion","Gurfinkel et al.",2021,0
+"Communications","USA","HPV completion","Gurfinkel et al.",2021,0
+"Communications","USA","HPV initiation (Colorado)","Gurfinkel et al.",2021,0
+"Communications","USA","HPV completion","Gurfinkel et al.",2021,1.4
+"Communications","USA","HPV initiation (Colorado)","Gurfinkel et al.",2021,0
+"Communications","USA","HPV completion","Gurfinkel et al.",2021,0
+"Communications","USA","HPV initiation (New York)","Gurfinkel et al.",2021,0
+"Communications","Kenya","Measles","Kagucia et al.",2021,10
+"Communications","USA","Influenza","Kappes et al.",2021,0
+"Communications","USA","Influenza","Kappes et al.",2021,0
+"Communications","USA","Influenza","Kappes et al.",2021,0
+"Communications","USA","Influenza","Kappes et al.",2021,0.6
+"Communications","USA","Numerous","Kappes et al.",2021,0.3
+"Communications","USA","Influenza; Pneumococcal; TDAP","Kappes et al.",2021,0
+"Communications","Ghana","Polio; BCG","Levine et al.",2021,10.5
+"Communications","Ethiopia","Childhood immunizations","Mekonnen et al.",2021,11.7
+"Communications","Ethiopia","Penta-3","Mekonnen et al.",2021,8.9
+"Communications","Ethiopia","Measles","Mekonnen et al.",2021,12.2
+"Communications","USA","Influenza","Milkman et al.",2021,2.1
+"Communications","China","Varicella","Qin et al.",2021,11.7
+"Communications","China","Varicella","Qin et al.",2021,10.8
+"Communications","USA","Childhood immunizations","Wagner et al.",2021,0
+"Communications","USA","HPV","Bastani et al.",2022,0
+"Communications","USA","COVID-19","Jacobson et al.",2022,0
+"Communications","USA","COVID-19","Jacobson et al.",2022,0
+"Communications","USA","COVID-19","Mehta et al.",2022,0
+"Communications","USA","COVID-19","Mehta et al.",2022,0
+"Communications","USA","Influenza","Milkman et al.",2022,2
+"Communications","Australia","Childhood immunizations (7 months)","O'Grady et al.",2022,15.9
+"Communications","USA","COVID-19","Patel et al.",2022,4.9
+"Communications","USA","COVID-19","Rabb et al.",2022,0
+"Communications","Finland","Influenza","Sääksvuori et al.",2022,6.4
+"Communications","Italy","COVID-19","Tentori et al.",2022,3.2
+"Communications","USA","Herpes zoster","Gatwood et al.",2023,3
+"Community Actions","Pakistan","Oral Polio Vaccine","Habib et al.",2017,7
+"Community Actions","Pakistan","Oral Polio Vaccine","Habib et al.",2017,9
+"Community Actions","India","Children fully immunised against six VPDs","Sengupta et al.",2017,17.3
+"Community Actions","India","DTP3","Nagar et al.",2018,0
+"Community Actions","India","DTP3","Nagar et al.",2018,0
+"Community Actions","Pakistan","Measles","Siddiqi et al.",2020,0
+"Community Actions","Pakistan","Pentavalent 3","Siddiqi et al.",2020,0
+"Community Actions","Sierra Leone","Childhood immunizations","Karing",2021,14
+"Community Actions","Cameroon","Specific Immunization Completeness","Ateudjieu et al.",2022,0
+"Community Actions","Cameroon","General Immunization Completeness","Ateudjieu et al.",2022,0
+"Community Actions","USA","COVID-19","Lieu et al.",2022,2.3
+"Community Actions","USA","COVID-19","Lieu et al.",2022,1.4
+"Education","Australia","Hepatitis B","Skinner et al.",2000,0
+"Education","USA","Childhood immunizations","Ashkar et al.",2003,0
+"Education","USA","Influenza","Kimura et al.",2007,26
+"Education","USA","Influenza","Kimura et al.",2007,0
+"Education","USA","Influenza","Kimura et al.",2007,19
+"Education","India","General Infant Vaccinations","Pandey et al.",2007,26
+"Education","India","Tetanus","Pandey et al.",2007,24
+"Education","Pakistan","DPT3 Full Course","Andersson et al.",2009,28.5
+"Education","Pakistan","Measles","Andersson et al.",2009,20
+"Education","Japan","Influenza","Usami et al.",2009,16.7
+"Education","Pakistan","DPT/Hepatitis B","Owais et al.",2011,20.4
+"Education","Pakistan","DPT3","Usman et al.",2011,28
+"Education","Pakistan","DPT3","Usman et al.",2011,22
+"Education","Pakistan","DPT3","Usman et al.",2011,27
+"Education","USA","HPV","Hopfer",2012,6
+"Education","USA","HPV","Hopfer",2012,10
+"Education","USA","HPV","Hopfer",2012,-5.8
+"Education","Spain","Influenza","Roca et al.",2012,5.4
+"Education","USA","Influenza","Frew et al.",2014,0
+"Education","USA","Influenza","Frew et al.",2014,0
+"Education","USA","HPV","Bennett et al.",2015,0
+"Education","USA","HPV initiation","DiClemente et al.",2015,0
+"Education","USA","Influenza","Goodman et al.",2015,0
+"Education","USA","HPV","Tiro et al.",2015,0
+"Education","USA","Influenza","Yoo et al.",2015,12
+"Education","Sweden","HPV","Grandahl et al.",2016,6.5
+"Education","USA","HPV initiation","Joseph et al.",2016,0
+"Education","USA","HPV completion","Joseph et al.",2016,0
+"Education","Hong Kong","Influenza","Wong et al.",2016,11.1
+"Education","China","Full immunisation (mothers)","Hu et al.",2017,7.1
+"Education","Hong Kong","Influenza","Leung et al.",2017,8.6
+"Education","France","Influenza","Berkhout et al.",2018,0
+"Education","Australia","Influenza","Borg et al.",2018,1.5
+"Education","USA","HPV series completion","Dempsey et al.",2018,4.4
+"Education","USA","HPV series intitiation","Dempsey et al.",2018,9.5
+"Education","India","DPT3","Powell-Jackson et al.",2018,15
+"Education","USA","Pertussis","Whitaker et al.",2018,0
+"Education","USA","Tetanus","Whitaker et al.",2018,0
+"Education","USA","Zoster","Whitaker et al.",2018,4.2
+"Education","USA","Influenza","Whitaker et al.",2018,0
+"Education","USA","Pneumococcal","Whitaker et al.",2018,0
+"Education","Hong Kong","Influenza","Yeung et al.",2018,26
+"Education","USA","HPV","Dixon et al.",2019,14.7
+"Education","Singapore","Pneumococcal","Ho et al.",2019,2
+"Education","Singapore","Influenza","Ho et al.",2019,0.9
+"Education","USA","TDAP; MenACWY; HPV","Underwood et al.",2019,10.6
+"Education","USA","TDAP; MenACWY; HPV","Underwood et al.",2019,6.8
+"Education","USA","HPV","Kim et al.",2020,8.5
+"Education","India","Full immunisation (children)","Pramanik et al.",2020,0
+"Education","USA","Childhood immunizations","Kappes et al.",2021,0
+"Education","Nigeria","Measles","Oyo-Ita et al.",2021,17
+"Education","Nigeria","Pentavalent 3","Oyo-Ita et al.",2021,5
+"Education","Nigeria","Pentavalent 2","Oyo-Ita et al.",2021,9
+"Education","Nigeria","Pentavalent 1","Oyo-Ita et al.",2021,17
+"Education","USA","HPV","Santa Maria et al.",2021,9.7
+"Education","China","Influenza","Jiang et al.",2022,6.9
+"Education","USA","Influenza","Marshall et al.",2022,2.06
+"Education","China","HPV","Si et al.",2022,0
+"Healthcare Improvement and Worker Training","Netherlands","Influenza","Hak et al.",2000,7
+"Healthcare Improvement and Worker Training","UK","Pneumococcal (CHD patients)","Siriwardena et al.",2002,8.3
+"Healthcare Improvement and Worker Training","UK","Pneumococcal (splenectomy patients)","Siriwardena et al.",2002,0
+"Healthcare Improvement and Worker Training","UK","Pneumococcal (diabetes patients)","Siriwardena et al.",2002,8.7
+"Healthcare Improvement and Worker Training","USA","Childhood immunizations","Hambidge et al.",2004,6
+"Healthcare Improvement and Worker Training","India","Full immunisation (children)","Banerjee et al.",2010,12
+"Healthcare Improvement and Worker Training","USA","Childhood immunizations (12-23 months)","Boom et al.",2010,0
+"Healthcare Improvement and Worker Training","USA","Influenza","Nowalk et al.",2010,0
+"Healthcare Improvement and Worker Training","USA","Influenza","Nowalk et al.",2010,0
+"Healthcare Improvement and Worker Training","USA","Influenza","Bond et al.",2011,5.7
+"Healthcare Improvement and Worker Training","Ethiopia","DPT3","Carnell et al.",2014,14.4
+"Healthcare Improvement and Worker Training","Ethiopia","Measles","Carnell et al.",2014,8.4
+"Healthcare Improvement and Worker Training","USA","Influenza","Nowalk et al.",2014,5.7
+"Healthcare Improvement and Worker Training","Guatemala","Complete childhood immunisation","Busso et al.",2015,2.2
+"Healthcare Improvement and Worker Training","USA","All necessary vaccines","Fu et al.",2016,0
+"Healthcare Improvement and Worker Training","USA","HPV initiation","Zimmerman et al.",2017,2.9
+"Healthcare Improvement and Worker Training","USA","HPV completion","Zimmerman et al.",2017,0
+"Healthcare Improvement and Worker Training","France","Influenza","Borgey et al.",2019,10.8
+"Healthcare Improvement and Worker Training","USA","Influenza; TDAP; HPV","O'Leary et al.",2019,0
+"Healthcare Improvement and Worker Training","USA","HPV","Szilagyi et al.",2021,2.4
+"Healthcare Improvement and Worker Training","USA","Combination 10","Williams et al.",2021,0
+"Healthcare Improvement and Worker Training","USA","COVID-19","Berry et al.",2022,0
+"Healthcare Improvement and Worker Training","USA","HPV initiation","Gilkey et al.",2022,1.5
+"Healthcare Improvement and Worker Training","USA","HPV initiation","Gilkey et al.",2022,3.8
+"Healthcare Improvement and Worker Training","USA","Influenza (19-64 yrs)","Heaton et al.",2022,0
+"Healthcare Improvement and Worker Training","USA","Influenza (\$\geq\$ 65 yrs)","Heaton et al.",2022,0
+"Incentives","USA","MMR; Poliovirus; Diphtheria; Tetanus Toxoids and Pertussis; Haemophilus influenzae type b; Hepatitis B.","Kerpelman et al.",2000,11.8
+"Incentives","USA","Any vaccination","Fairbrother et al.",2001,5.9
+"Incentives","USA","Any vaccination","Fairbrother et al.",2001,7.4
+"Incentives","USA","Influenza","Doratotaj et al.",2008,0
+"Incentives","USA","Influenza","Doratotaj et al.",2008,0
+"Incentives","India","Full immunisation (children)","Banerjee et al.",2010,33
+"Incentives","Australia","Hepatitis B","Topp et al.",2013,21
+"Incentives","UK","Hepatitis B","Weaver et al.",2014,36
+"Incentives","UK","Hepatitis B","Weaver et al.",2014,40
+"Incentives","UK","HPV initiation","Mantzari et al.",2015,8.8
+"Incentives","USA","All necessary vaccines","Fu et al.",2016,0
+"Incentives","Nigeria","Tetanus toxoid","Sato et al.",2020,20.9
+"Incentives","Nigeria","Tetanus toxoid","Sato et al.",2020,30.7
+"Incentives","Singapore","Influenza","Yue et al.",2020,3
+"Incentives","Singapore","Influenza","Yue et al.",2020,4.7
+"Incentives","Sweden","COVID-19","Campos-Mercade et al.",2021,4.2
+"Incentives","USA","COVID-19","Chang et al.",2021,1
+"Incentives","Ghana","Polio; BCG","Levine et al.",2021,49.5
+"Incentives","USA","COVID-19","Jacobson et al.",2022,0
+"Incentives","USA","COVID-19","Lang et al.",2022,0.7
+"Incentives","USA","COVID-19","Milkman et al.",2022,0.06
