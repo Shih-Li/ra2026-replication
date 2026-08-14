@@ -1,0 +1,11 @@
+"Row","Attrition"
+"Mobile Account — Estimate",0.00893643247342124
+"Mobile Account — Robust SE",0.0139825732219337
+"Mobile Account — Robust p-value",0.522807877238782
+"Mobile Disburse — Estimate",0.00767983883013417
+"Mobile Disburse — Robust SE",0.0140284462475919
+"Mobile Disburse — Robust p-value",0.584119606515552
+"Observations",2959
+"R-squared",0.16045305322447
+"Control mean",0.10081466395112
+"p-value MA=MD",0.929330403572919

@@ -1,0 +1,2 @@
+Not reproduced: Stata multe contamination-bias diagnostics for earn_business and capital.
+Reason: the substantive multe implementation was not included among the supplied source files.

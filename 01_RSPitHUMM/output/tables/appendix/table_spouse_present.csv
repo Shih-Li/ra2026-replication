@@ -1,0 +1,22 @@
+"Row","earn_business","capital"
+"Mobile Account — Estimate",3.23893261259606,46.5688454589855
+"Mobile Account — Robust SE",5.50637389938788,37.382245988083
+"Mobile Account — Robust p-value",0.556448094853341,0.212989339951253
+"Mobile Disburse — Estimate",24.7666752845123,107.759659007183
+"Mobile Disburse — Robust SE",5.36710595448795,37.6773935580593
+"Mobile Disburse — Robust p-value",0.00000416585025618783,0.00427542303551877
+"Mobile Account * no spouse at home — Estimate",-0.77240681664173,-61.7769950760556
+"Mobile Account * no spouse at home — Robust SE",7.97948492328483,51.7683321688818
+"Mobile Account * no spouse at home — Robust p-value",0.922894745840881,0.232866276125667
+"Mobile Disburse * no spouse at home — Estimate",-14.0536015964386,-76.5791108102315
+"Mobile Disburse * no spouse at home — Robust SE",7.66859642958751,52.4251599432745
+"Mobile Disburse * no spouse at home — Robust p-value",0.0669942382871442,0.144231399139939
+"No spouse at home — Estimate",2.73174787438113,0.36975904751543
+"No spouse at home — Robust SE",5.51751347207026,40.226431577024
+"No spouse at home — Robust p-value",0.620575394638599,0.99266682538618
+"Observations",2639,2639
+"R-squared",0.439704812953912,0.513824537397883
+"Control mean",109.812184343434,678.276653418758
+"Control mean baseline",116.618220712218,655.89806678638
+"p-value MA=MD",0.000165844460695109,0.0707238558695036
+"p-value MA=MD interaction",0.0935764431488818,0.755420992515056
