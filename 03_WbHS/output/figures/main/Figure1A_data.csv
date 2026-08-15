@@ -1,0 +1,13 @@
+"gender","treatment","time","rate"
+"Women","Control",1,0.630225080385852
+"Women","Control",2,0.72
+"Women","Control",3,0.758293838862559
+"Women","Treatment",1,0.66
+"Women","Treatment",2,0.797169811320755
+"Women","Treatment",3,0.78494623655914
+"Men","Control",1,0.876811594202899
+"Men","Control",2,0.941176470588235
+"Men","Control",3,0.943181818181818
+"Men","Treatment",1,0.88
+"Men","Treatment",2,0.948717948717949
+"Men","Treatment",3,0.967741935483871

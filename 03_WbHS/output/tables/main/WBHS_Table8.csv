@@ -1,0 +1,21 @@
+"outcome","group","specification","heterogeneity","estimate","se","p"
+"emplo_av","Women","median_front","Missing at least one front tooth",0.0684362102468513,0.0768864689988535,0.374069612643306
+"emplo_av","Women","median_front","Many non-front teeth (>= median)",0.0242901141773483,0.0747997936171512,0.745589255731665
+"emplo_av","Women","p75_twofront","Missing at least two front teeth",0.10215112312749,0.0916169914095015,0.265677708227876
+"emplo_av","Women","p75_twofront","Many non-front teeth (>= p75)",0.0648086606565524,0.0918548852132302,0.480967309881302
+"emplo_av","Women","full_controls","Missing at least one front tooth (fully interacted controls)",0.2072558044859,0.115879129687697,0.0748787710580023
+"emplo_av","Men","median_front","Missing at least one front tooth",-0.0709240775612284,0.0520194444052327,0.175783267405943
+"emplo_av","Men","median_front","Many non-front teeth (>= median)",0.0423553841388394,0.0589889961651678,0.474401461766686
+"emplo_av","Men","p75_twofront","Missing at least two front teeth",-0.125221275233973,0.0767965845991107,0.10609833111166
+"emplo_av","Men","p75_twofront","Many non-front teeth (>= p75)",0.124454659373186,0.0691206253977924,0.0747597025014609
+"emplo_av","Men","full_controls","Missing at least one front tooth (fully interacted controls)",-0.0894842344556701,0.100456671150265,0.375300623419239
+"ly_av","Women","median_front","Missing at least one front tooth",1.39281892920429,0.960925167998145,0.148478687292797
+"ly_av","Women","median_front","Many non-front teeth (>= median)",0.737092305582677,0.943879398224039,0.435598585267717
+"ly_av","Women","p75_twofront","Missing at least two front teeth",1.91400981136489,1.11769972510335,0.0880679547814961
+"ly_av","Women","p75_twofront","Many non-front teeth (>= p75)",0.921688905526468,1.16559534847834,0.429851287098198
+"ly_av","Women","full_controls","Missing at least one front tooth (fully interacted controls)",2.4957714507888,1.50110682065542,0.0976829741991115
+"ly_av","Men","median_front","Missing at least one front tooth",-0.892770492073532,0.685932595004316,0.196253643849813
+"ly_av","Men","median_front","Many non-front teeth (>= median)",0.369684088125407,0.711461046779645,0.604555086501506
+"ly_av","Men","p75_twofront","Missing at least two front teeth",-1.23589576595954,0.995015942249272,0.217294702941972
+"ly_av","Men","p75_twofront","Many non-front teeth (>= p75)",1.59622965220058,0.936779908346921,0.0916934376395371
+"ly_av","Men","full_controls","Missing at least one front tooth (fully interacted controls)",-1.04010662827051,1.17922129131673,0.380137473128447
