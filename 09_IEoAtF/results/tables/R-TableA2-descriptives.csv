@@ -1,0 +1,9 @@
+"sample","outcome","mean","sd","n"
+"retained_no_shutdown","part5revenue",324.56335444893,403.630044131428,948
+"retained_no_shutdown","total_profit",51.7532383842072,70.9699106576377,948
+"retained_no_shutdown","labor",8.74050632911392,5.30088998096027,948
+"retained_no_shutdown","num_clients",28.6191983122363,18.1841318489215,948
+"observed_endline","part5revenue",344.042613661134,486.283824197285,616
+"observed_endline","total_profit",54.3554869980805,84.2585569361296,616
+"observed_endline","labor",8.87662337662338,5.57092092584244,616
+"observed_endline","num_clients",29.3896103896104,18.2966740727483,616

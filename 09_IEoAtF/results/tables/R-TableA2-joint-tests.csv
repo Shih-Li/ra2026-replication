@@ -1,0 +1,9 @@
+"sample","assignment","joint_p.value","n"
+"retained_no_shutdown","T50",0.62028621018979,2482
+"retained_no_shutdown","C50",0.537161474171964,2482
+"retained_no_shutdown","T80",0.876073792390135,2482
+"retained_no_shutdown","C80",0.214387651716254,2482
+"observed_endline","T50",0.775179448436214,1804
+"observed_endline","C50",0.392052927116127,1804
+"observed_endline","T80",0.982826819772516,1804
+"observed_endline","C80",0.167596080579923,1804

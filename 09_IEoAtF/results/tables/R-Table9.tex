@@ -1,0 +1,22 @@
+\begin{table}
+
+\caption{Table 9. First stages and IV}
+\centering
+\begin{tabular}[t]{lllrrrrrrllrl}
+\toprule
+model & outcome & term & estimate & std.error & statistic & p.value & n & control\_mean & fixed\_effects & notes & first\_stage\_F & stage\\
+\midrule
+Table9\_firststage\_loanuse & loanuse & interpost & 0.3219 & 0.0342 & 9.4003 & 0.0000 & 8612 & NA & Firm FE + midline/endline & NA & 50.0943 & First stage\\
+Table9\_firststage\_loanuse & loanuse & inter4post & 0.0925 & 0.0232 & 3.9935 & 0.0001 & 8612 & NA & Firm FE + midline/endline & NA & 50.0943 & First stage\\
+Table9\_firststage\_comploanuse & comploanuse & interpost & 0.0111 & 0.0060 & 1.8517 & 0.0679 & 8612 & NA & Firm FE + midline/endline & NA & 58.8409 & First stage\\
+Table9\_firststage\_comploanuse & comploanuse & inter4post & 0.3994 & 0.0383 & 10.4395 & 0.0000 & 8612 & NA & Firm FE + midline/endline & NA & 58.8409 & First stage\\
+Table9\_IV\_lnpart5revenue & lnpart5revenue & loanuse & 0.3181 & 0.1038 & 3.0641 & 0.0022 & 8612 & NA & Firm FE + midline/endline & Stata xtivreg specification uses default (non-clustered) IV standard errors. & NA & IV\\
+\addlinespace
+Table9\_IV\_lnpart5revenue & lnpart5revenue & comploanuse & -0.2878 & 0.1208 & -2.3824 & 0.0172 & 8612 & NA & Firm FE + midline/endline & Stata xtivreg specification uses default (non-clustered) IV standard errors. & NA & IV\\
+Table9\_IV\_total\_profit & total\_profit & loanuse & 40.4149 & 12.0785 & 3.3460 & 0.0008 & 8612 & NA & Firm FE + midline/endline & Stata xtivreg specification uses default (non-clustered) IV standard errors. & NA & IV\\
+Table9\_IV\_total\_profit & total\_profit & comploanuse & -33.0858 & 14.0579 & -2.3535 & 0.0186 & 8612 & NA & Firm FE + midline/endline & Stata xtivreg specification uses default (non-clustered) IV standard errors. & NA & IV\\
+Table9\_IV\_lnlabor & lnlabor & loanuse & 0.2387 & 0.0701 & 3.4040 & 0.0007 & 8612 & NA & Firm FE + midline/endline & Stata xtivreg specification uses default (non-clustered) IV standard errors. & NA & IV\\
+Table9\_IV\_lnlabor & lnlabor & comploanuse & -0.2202 & 0.0816 & -2.6979 & 0.0070 & 8612 & NA & Firm FE + midline/endline & Stata xtivreg specification uses default (non-clustered) IV standard errors. & NA & IV\\
+\bottomrule
+\end{tabular}
+\end{table}

@@ -1,0 +1,118 @@
+\begin{table}
+
+\caption{Table 1. Baseline balance}
+\centering
+\begin{tabular}[t]{lllrrrrrllll}
+\toprule
+model & outcome & term & estimate & std.error & statistic & p.value & n & panel & outcome\_label & column & row\_type\\
+\midrule
+Panel\_A & firmage & (Intercept) & 6.4787 & 0.3080 & 21.0379 & 0.0000 & 3173 & A & Firm age & Pure Control & estimate\\
+Panel\_A & firmage & T50 & 0.7780 & 1.0067 & 0.7728 & 0.4420 & 3173 & A & Firm age & Delta Treated 50\% Market & estimate\\
+Panel\_A & firmage & C50 & 1.0089 & 0.7239 & 1.3937 & 0.1674 & 3173 & A & Firm age & Delta Untreated 50\% Market & estimate\\
+Panel\_A & firmage & T80 & -0.2135 & 0.4202 & -0.5081 & 0.6128 & 3173 & A & Firm age & Delta Treated 80\% Market & estimate\\
+Panel\_A & firmage & C80 & -0.4474 & 0.4692 & -0.9536 & 0.3433 & 3173 & A & Firm age & Delta Untreated 80\% Market & estimate\\
+\addlinespace
+Panel\_A & retail & (Intercept) & 0.6824 & 0.0571 & 11.9568 & 0.0000 & 3173 & A & Sector-Retail (\%) & Pure Control & estimate\\
+Panel\_A & retail & T50 & 0.0473 & 0.0886 & 0.5337 & 0.5951 & 3173 & A & Sector-Retail (\%) & Delta Treated 50\% Market & estimate\\
+Panel\_A & retail & C50 & 0.0269 & 0.1033 & 0.2607 & 0.7951 & 3173 & A & Sector-Retail (\%) & Delta Untreated 50\% Market & estimate\\
+Panel\_A & retail & T80 & 0.0037 & 0.0717 & 0.0519 & 0.9587 & 3173 & A & Sector-Retail (\%) & Delta Treated 80\% Market & estimate\\
+Panel\_A & retail & C80 & -0.0413 & 0.0903 & -0.4578 & 0.6484 & 3173 & A & Sector-Retail (\%) & Delta Untreated 80\% Market & estimate\\
+\addlinespace
+Panel\_A & labor & (Intercept) & 8.8228 & 0.5640 & 15.6426 & 0.0000 & 3173 & A & Number of Employees & Pure Control & estimate\\
+Panel\_A & labor & T50 & 1.1592 & 1.1514 & 1.0068 & 0.3172 & 3173 & A & Number of Employees & Delta Treated 50\% Market & estimate\\
+Panel\_A & labor & C50 & 0.3644 & 1.1309 & 0.3222 & 0.7482 & 3173 & A & Number of Employees & Delta Untreated 50\% Market & estimate\\
+Panel\_A & labor & T80 & 0.0150 & 0.7049 & 0.0212 & 0.9831 & 3173 & A & Number of Employees & Delta Treated 80\% Market & estimate\\
+Panel\_A & labor & C80 & 0.2190 & 0.6967 & 0.3144 & 0.7541 & 3173 & A & Number of Employees & Delta Untreated 80\% Market & estimate\\
+\addlinespace
+Panel\_A & total\_profit & (Intercept) & 51.9453 & 6.1933 & 8.3874 & 0.0000 & 3173 & A & Profit (10,000 RMB) & Pure Control & estimate\\
+Panel\_A & total\_profit & T50 & -1.8784 & 11.6165 & -0.1617 & 0.8720 & 3173 & A & Profit (10,000 RMB) & Delta Treated 50\% Market & estimate\\
+Panel\_A & total\_profit & C50 & -2.4832 & 9.1341 & -0.2719 & 0.7865 & 3173 & A & Profit (10,000 RMB) & Delta Untreated 50\% Market & estimate\\
+Panel\_A & total\_profit & T80 & -0.9514 & 7.7466 & -0.1228 & 0.9026 & 3173 & A & Profit (10,000 RMB) & Delta Treated 80\% Market & estimate\\
+Panel\_A & total\_profit & C80 & -0.2721 & 8.2041 & -0.0332 & 0.9736 & 3173 & A & Profit (10,000 RMB) & Delta Untreated 80\% Market & estimate\\
+\addlinespace
+Panel\_A & part5revenue & (Intercept) & 323.7058 & 38.3045 & 8.4509 & 0.0000 & 3173 & A & Sales (10,000 RMB) & Pure Control & estimate\\
+Panel\_A & part5revenue & T50 & 19.0591 & 79.7472 & 0.2390 & 0.8117 & 3173 & A & Sales (10,000 RMB) & Delta Treated 50\% Market & estimate\\
+Panel\_A & part5revenue & C50 & 6.5701 & 59.8344 & 0.1098 & 0.9129 & 3173 & A & Sales (10,000 RMB) & Delta Untreated 50\% Market & estimate\\
+Panel\_A & part5revenue & T80 & 2.9250 & 53.7390 & 0.0544 & 0.9567 & 3173 & A & Sales (10,000 RMB) & Delta Treated 80\% Market & estimate\\
+Panel\_A & part5revenue & C80 & -7.4156 & 43.4024 & -0.1709 & 0.8648 & 3173 & A & Sales (10,000 RMB) & Delta Untreated 80\% Market & estimate\\
+\addlinespace
+Panel\_B & gender & (Intercept) & 0.5806 & 0.0305 & 19.0407 & 0.0000 & 3173 & B & Gender (1=Male, 0=Female) & Pure Control & estimate\\
+Panel\_B & gender & T50 & -0.0175 & 0.0649 & -0.2701 & 0.7878 & 3173 & B & Gender (1=Male, 0=Female) & Delta Treated 50\% Market & estimate\\
+Panel\_B & gender & C50 & -0.0092 & 0.0610 & -0.1502 & 0.8810 & 3173 & B & Gender (1=Male, 0=Female) & Delta Untreated 50\% Market & estimate\\
+Panel\_B & gender & T80 & -0.0015 & 0.0532 & -0.0285 & 0.9773 & 3173 & B & Gender (1=Male, 0=Female) & Delta Treated 80\% Market & estimate\\
+Panel\_B & gender & C80 & -0.0022 & 0.0590 & -0.0372 & 0.9704 & 3173 & B & Gender (1=Male, 0=Female) & Delta Untreated 80\% Market & estimate\\
+\addlinespace
+Panel\_B & age & (Intercept) & 38.3625 & 0.6421 & 59.7485 & 0.0000 & 3173 & B & Age & Pure Control & estimate\\
+Panel\_B & age & T50 & -0.2318 & 1.4148 & -0.1639 & 0.8703 & 3173 & B & Age & Delta Treated 50\% Market & estimate\\
+Panel\_B & age & C50 & 0.3469 & 1.2940 & 0.2681 & 0.7894 & 3173 & B & Age & Delta Untreated 50\% Market & estimate\\
+Panel\_B & age & T80 & -0.0157 & 1.0810 & -0.0145 & 0.9885 & 3173 & B & Age & Delta Treated 80\% Market & estimate\\
+Panel\_B & age & C80 & 0.9267 & 1.0593 & 0.8749 & 0.3844 & 3173 & B & Age & Delta Untreated 80\% Market & estimate\\
+\addlinespace
+Panel\_B & education\_college & (Intercept) & 0.2462 & 0.0210 & 11.7361 & 0.0000 & 3173 & B & Education-College & Pure Control & estimate\\
+Panel\_B & education\_college & T50 & 0.0106 & 0.0363 & 0.2912 & 0.7717 & 3173 & B & Education-College & Delta Treated 50\% Market & estimate\\
+Panel\_B & education\_college & C50 & 0.0247 & 0.0507 & 0.4885 & 0.6266 & 3173 & B & Education-College & Delta Untreated 50\% Market & estimate\\
+Panel\_B & education\_college & T80 & 0.0306 & 0.0280 & 1.0904 & 0.2790 & 3173 & B & Education-College & Delta Treated 80\% Market & estimate\\
+Panel\_B & education\_college & C80 & 0.0291 & 0.0339 & 0.8586 & 0.3932 & 3173 & B & Education-College & Delta Untreated 80\% Market & estimate\\
+\addlinespace
+Panel\_B & polconnection & (Intercept) & 0.1476 & 0.0178 & 8.3119 & 0.0000 & 3173 & B & Political Connection (1=Yes, 0=No) & Pure Control & estimate\\
+Panel\_B & polconnection & T50 & 0.0371 & 0.0398 & 0.9327 & 0.3539 & 3173 & B & Political Connection (1=Yes, 0=No) & Delta Treated 50\% Market & estimate\\
+Panel\_B & polconnection & C50 & 0.0150 & 0.0312 & 0.4803 & 0.6324 & 3173 & B & Political Connection (1=Yes, 0=No) & Delta Untreated 50\% Market & estimate\\
+Panel\_B & polconnection & T80 & 0.0147 & 0.0248 & 0.5935 & 0.5546 & 3173 & B & Political Connection (1=Yes, 0=No) & Delta Treated 80\% Market & estimate\\
+Panel\_B & polconnection & C80 & 0.0127 & 0.0273 & 0.4664 & 0.6423 & 3173 & B & Political Connection (1=Yes, 0=No) & Delta Untreated 80\% Market & estimate\\
+\addlinespace
+Panel\_C & bankloan & (Intercept) & 0.2526 & 0.0243 & 10.3831 & 0.0000 & 3173 & C & Other Bank Loan (1=Yes, 0=No) & Pure Control & estimate\\
+Panel\_C & bankloan & T50 & 0.0357 & 0.0493 & 0.7239 & 0.4713 & 3173 & C & Other Bank Loan (1=Yes, 0=No) & Delta Treated 50\% Market & estimate\\
+Panel\_C & bankloan & C50 & -0.0014 & 0.0478 & -0.0288 & 0.9771 & 3173 & C & Other Bank Loan (1=Yes, 0=No) & Delta Untreated 50\% Market & estimate\\
+Panel\_C & bankloan & T80 & -0.0269 & 0.0331 & -0.8125 & 0.4190 & 3173 & C & Other Bank Loan (1=Yes, 0=No) & Delta Treated 80\% Market & estimate\\
+Panel\_C & bankloan & C80 & -0.0296 & 0.0435 & -0.6802 & 0.4984 & 3173 & C & Other Bank Loan (1=Yes, 0=No) & Delta Untreated 80\% Market & estimate\\
+\addlinespace
+Panel\_C & bankloan\_amount & (Intercept) & 30.7810 & 6.7366 & 4.5692 & 0.0000 & 755 & C & Loan Size (10,000 RMB) & Pure Control & estimate\\
+Panel\_C & bankloan\_amount & T50 & 1.2708 & 14.2763 & 0.0890 & 0.9293 & 755 & C & Loan Size (10,000 RMB) & Delta Treated 50\% Market & estimate\\
+Panel\_C & bankloan\_amount & C50 & -4.0082 & 8.9194 & -0.4494 & 0.6545 & 755 & C & Loan Size (10,000 RMB) & Delta Untreated 50\% Market & estimate\\
+Panel\_C & bankloan\_amount & T80 & -1.9817 & 11.1235 & -0.1782 & 0.8591 & 755 & C & Loan Size (10,000 RMB) & Delta Treated 80\% Market & estimate\\
+Panel\_C & bankloan\_amount & C80 & -5.5310 & 7.7691 & -0.7119 & 0.4788 & 755 & C & Loan Size (10,000 RMB) & Delta Untreated 80\% Market & estimate\\
+\addlinespace
+Panel\_C & bankloan\_interest & (Intercept) & 9.1575 & 0.1330 & 68.8430 & 0.0000 & 682 & C & Monthly Interest Rate & Pure Control & estimate\\
+Panel\_C & bankloan\_interest & T50 & -0.3909 & 0.3800 & -1.0285 & 0.3070 & 682 & C & Monthly Interest Rate & Delta Treated 50\% Market & estimate\\
+Panel\_C & bankloan\_interest & C50 & 0.3322 & 0.2889 & 1.1499 & 0.2539 & 682 & C & Monthly Interest Rate & Delta Untreated 50\% Market & estimate\\
+Panel\_C & bankloan\_interest & T80 & 0.0430 & 0.1975 & 0.2175 & 0.8284 & 682 & C & Monthly Interest Rate & Delta Treated 80\% Market & estimate\\
+Panel\_C & bankloan\_interest & C80 & 0.0363 & 0.2943 & 0.1235 & 0.9020 & 682 & C & Monthly Interest Rate & Delta Untreated 80\% Market & estimate\\
+\addlinespace
+Panel\_D & num\_clients & (Intercept) & 27.3737 & 1.0111 & 27.0738 & 0.0000 & 3173 & D & Number of Clients & Pure Control & estimate\\
+Panel\_D & num\_clients & T50 & -0.7701 & 1.5048 & -0.5118 & 0.6103 & 3173 & D & Number of Clients & Delta Treated 50\% Market & estimate\\
+Panel\_D & num\_clients & C50 & 1.2322 & 2.2870 & 0.5388 & 0.5916 & 3173 & D & Number of Clients & Delta Untreated 50\% Market & estimate\\
+Panel\_D & num\_clients & T80 & 1.1238 & 1.4818 & 0.7584 & 0.4505 & 3173 & D & Number of Clients & Delta Treated 80\% Market & estimate\\
+Panel\_D & num\_clients & C80 & 2.1176 & 1.8292 & 1.1576 & 0.2506 & 3173 & D & Number of Clients & Delta Untreated 80\% Market & estimate\\
+\addlinespace
+Panel\_D & num\_supplier & (Intercept) & 6.5349 & 0.8130 & 8.0383 & 0.0000 & 3173 & D & Number of Suppliers & Pure Control & estimate\\
+Panel\_D & num\_supplier & T50 & 2.0912 & 2.2447 & 0.9316 & 0.3544 & 3173 & D & Number of Suppliers & Delta Treated 50\% Market & estimate\\
+Panel\_D & num\_supplier & C50 & 1.5489 & 1.5587 & 0.9937 & 0.3235 & 3173 & D & Number of Suppliers & Delta Untreated 50\% Market & estimate\\
+Panel\_D & num\_supplier & T80 & -0.2441 & 0.9081 & -0.2688 & 0.7888 & 3173 & D & Number of Suppliers & Delta Treated 80\% Market & estimate\\
+Panel\_D & num\_supplier & C80 & 0.1237 & 1.0634 & 0.1163 & 0.9077 & 3173 & D & Number of Suppliers & Delta Untreated 80\% Market & estimate\\
+\addlinespace
+Panel\_E & flagatt & (Intercept) & 0.1059 & 0.0092 & 11.4627 & 0.0000 & 3173 & E & Attrition & Pure Control & estimate\\
+Panel\_E & flagatt & T50 & -0.0023 & 0.0150 & -0.1501 & 0.8811 & 3173 & E & Attrition & Delta Treated 50\% Market & estimate\\
+Panel\_E & flagatt & C50 & -0.0024 & 0.0225 & -0.1071 & 0.9150 & 3173 & E & Attrition & Delta Untreated 50\% Market & estimate\\
+Panel\_E & flagatt & T80 & 0.0012 & 0.0123 & 0.0998 & 0.9208 & 3173 & E & Attrition & Delta Treated 80\% Market & estimate\\
+Panel\_E & flagatt & C80 & -0.0013 & 0.0158 & -0.0836 & 0.9336 & 3173 & E & Attrition & Delta Untreated 80\% Market & estimate\\
+\addlinespace
+Panel\_E & shutdownall & (Intercept) & 0.1339 & 0.0225 & 5.9504 & 0.0000 & 3173 & E & Shutdown & Pure Control & estimate\\
+Panel\_E & shutdownall & T50 & -0.0258 & 0.0587 & -0.4395 & 0.6615 & 3173 & E & Shutdown & Delta Treated 50\% Market & estimate\\
+Panel\_E & shutdownall & C50 & -0.0305 & 0.0450 & -0.6767 & 0.5006 & 3173 & E & Shutdown & Delta Untreated 50\% Market & estimate\\
+Panel\_E & shutdownall & T80 & -0.0524 & 0.0275 & -1.9030 & 0.0608 & 3173 & E & Shutdown & Delta Treated 80\% Market & estimate\\
+Panel\_E & shutdownall & C80 & 0.0194 & 0.0340 & 0.5699 & 0.5704 & 3173 & E & Shutdown & Delta Untreated 80\% Market & estimate\\
+\addlinespace
+Joint significance & PureControl & joint\_baseline\_controls & NA & NA & NA & NA & NA & Bottom & P-val of Joint Significance of Vars in Panels A-D & Pure Control & joint\_p\\
+Joint significance & T50 & joint\_baseline\_controls & NA & NA & NA & 0.4390 & 3173 & Bottom & P-val of Joint Significance of Vars in Panels A-D & T50 & joint\_p\\
+Joint significance & C50 & joint\_baseline\_controls & NA & NA & NA & 0.3540 & 3173 & Bottom & P-val of Joint Significance of Vars in Panels A-D & C50 & joint\_p\\
+Joint significance & T80 & joint\_baseline\_controls & NA & NA & NA & 0.7161 & 3173 & Bottom & P-val of Joint Significance of Vars in Panels A-D & T80 & joint\_p\\
+Joint significance & C80 & joint\_baseline\_controls & NA & NA & NA & 0.3284 & 3173 & Bottom & P-val of Joint Significance of Vars in Panels A-D & C80 & joint\_p\\
+\addlinespace
+Observations & N & N & 1247.0000 & NA & NA & NA & NA & Bottom & Observations & Pure Control & N\\
+Observations & N & N & 222.0000 & NA & NA & NA & NA & Bottom & Observations & T50 & N\\
+Observations & N & N & 203.0000 & NA & NA & NA & NA & Bottom & Observations & C50 & N\\
+Observations & N & N & 1214.0000 & NA & NA & NA & NA & Bottom & Observations & T80 & N\\
+Observations & N & N & 287.0000 & NA & NA & NA & NA & Bottom & Observations & C80 & N\\
+\bottomrule
+\end{tabular}
+\end{table}

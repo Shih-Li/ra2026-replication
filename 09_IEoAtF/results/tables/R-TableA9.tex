@@ -1,0 +1,22 @@
+\begin{table}
+
+\caption{Table A9}
+\centering
+\begin{tabular}[t]{lllrrrrrrlll}
+\toprule
+model & outcome & term & estimate & std.error & statistic & p.value & n & control\_mean & fixed\_effects & notes & specification\\
+\midrule
+A9\_lnsales2\_endline & lnsales2 & type & 0.1055 & 0.0589 & 1.7904 & 0.0773 & 2530 & NA & NA & NA & endline cross-section\\
+A9\_lnsales2\_endline & lnsales2 & treatratio\_comp & -0.0989 & 0.0794 & -1.2451 & 0.2169 & 2530 & NA & NA & NA & endline cross-section\\
+A9\_lnsales2\_panel & lnsales2 & interpost & 0.1096 & 0.0449 & 2.4393 & 0.0170 & 5703 & NA & Firm FE + Post & NA & panel with baseline main-sales measure\\
+A9\_lnsales2\_panel & lnsales2 & inter4post & -0.0907 & 0.0498 & -1.8220 & 0.0723 & 5703 & NA & Firm FE + Post & NA & panel with baseline main-sales measure\\
+A9\_lnsalesdif & lnsalesdif & type & 0.0128 & 0.0835 & 0.1530 & 0.8788 & 2530 & NA & NA & NA & alternative sales difference\\
+\addlinespace
+A9\_lnsalesdif & lnsalesdif & treatratio\_comp & -0.0222 & 0.1121 & -0.1978 & 0.8438 & 2530 & NA & NA & NA & alternative sales difference\\
+A9\_zfinknowledge & zfinknowledge & type & 0.0965 & 0.0647 & 1.4918 & 0.1398 & 2714 & NA & NA & NA & standardized using untreated mean absolute deviation\\
+A9\_zfinknowledge & zfinknowledge & treatratio\_comp & -0.0354 & 0.0715 & -0.4947 & 0.6222 & 2714 & NA & NA & NA & standardized using untreated mean absolute deviation\\
+A9\_zdifficultyloan & zdifficultyloan & type & -0.0747 & 0.0752 & -0.9930 & 0.3238 & 2714 & NA & NA & NA & standardized using untreated mean absolute deviation\\
+A9\_zdifficultyloan & zdifficultyloan & treatratio\_comp & -0.0236 & 0.0818 & -0.2879 & 0.7742 & 2714 & NA & NA & NA & standardized using untreated mean absolute deviation\\
+\bottomrule
+\end{tabular}
+\end{table}

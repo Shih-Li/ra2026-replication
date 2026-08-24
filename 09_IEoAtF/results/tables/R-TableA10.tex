@@ -1,0 +1,55 @@
+\begin{table}
+
+\caption{Table A10. Local robustness}
+\centering
+\begin{tabular}[t]{lllrrrrrrlll}
+\toprule
+model & outcome & term & estimate & std.error & statistic & p.value & n & control\_mean & fixed\_effects & notes & specification\\
+\midrule
+A10\_consumer\_zconeval\_squality & zconeval\_squality & type & 0.7376 & 0.0998 & 7.3929 & 0.0000 & 1804 & NA & NA & NA & consumer local-exposure robustness\\
+A10\_consumer\_zconeval\_squality & zconeval\_squality & treatratio\_lcomp & -0.2877 & 0.1328 & -2.1673 & 0.0334 & 1804 & NA & NA & NA & consumer local-exposure robustness\\
+A10\_consumer\_zconeval\_squality & zconeval\_squality & treatratio\_lnoncomp & 0.1309 & 0.1420 & 0.9218 & 0.3596 & 1804 & NA & NA & NA & consumer local-exposure robustness\\
+A10\_consumer\_zconeval\_squality & zconeval\_squality & treatratio\_nonlcomp & 0.0573 & 0.1887 & 0.3038 & 0.7621 & 1804 & NA & NA & NA & consumer local-exposure robustness\\
+A10\_consumer\_zconeval\_squality & zconeval\_squality & treatratio\_nonlnoncomp & -0.0207 & 0.2311 & -0.0894 & 0.9290 & 1804 & NA & NA & NA & consumer local-exposure robustness\\
+\addlinespace
+A10\_consumer\_zconeval\_env & zconeval\_env & type & 0.9875 & 0.1007 & 9.8098 & 0.0000 & 1804 & NA & NA & NA & consumer local-exposure robustness\\
+A10\_consumer\_zconeval\_env & zconeval\_env & treatratio\_lcomp & -0.2526 & 0.1053 & -2.3990 & 0.0189 & 1804 & NA & NA & NA & consumer local-exposure robustness\\
+A10\_consumer\_zconeval\_env & zconeval\_env & treatratio\_lnoncomp & 0.0196 & 0.1082 & 0.1812 & 0.8567 & 1804 & NA & NA & NA & consumer local-exposure robustness\\
+A10\_consumer\_zconeval\_env & zconeval\_env & treatratio\_nonlcomp & -0.1934 & 0.2020 & -0.9577 & 0.3413 & 1804 & NA & NA & NA & consumer local-exposure robustness\\
+A10\_consumer\_zconeval\_env & zconeval\_env & treatratio\_nonlnoncomp & 0.0975 & 0.2333 & 0.4181 & 0.6771 & 1804 & NA & NA & NA & consumer local-exposure robustness\\
+\addlinespace
+A10\_consumer\_zconeval\_money & zconeval\_money & type & 0.6162 & 0.0838 & 7.3534 & 0.0000 & 1804 & NA & NA & NA & consumer local-exposure robustness\\
+A10\_consumer\_zconeval\_money & zconeval\_money & treatratio\_lcomp & -0.1728 & 0.0971 & -1.7798 & 0.0792 & 1804 & NA & NA & NA & consumer local-exposure robustness\\
+A10\_consumer\_zconeval\_money & zconeval\_money & treatratio\_lnoncomp & 0.0329 & 0.0841 & 0.3908 & 0.6971 & 1804 & NA & NA & NA & consumer local-exposure robustness\\
+A10\_consumer\_zconeval\_money & zconeval\_money & treatratio\_nonlcomp & -0.1322 & 0.1317 & -1.0034 & 0.3189 & 1804 & NA & NA & NA & consumer local-exposure robustness\\
+A10\_consumer\_zconeval\_money & zconeval\_money & treatratio\_nonlnoncomp & 0.0790 & 0.1553 & 0.5087 & 0.6125 & 1804 & NA & NA & NA & consumer local-exposure robustness\\
+\addlinespace
+A10\_consumer\_zconeval\_all & zconeval\_all & type & 0.8394 & 0.0681 & 12.3220 & 0.0000 & 1804 & NA & NA & NA & consumer local-exposure robustness\\
+A10\_consumer\_zconeval\_all & zconeval\_all & treatratio\_lcomp & -0.1688 & 0.0806 & -2.0946 & 0.0396 & 1804 & NA & NA & NA & consumer local-exposure robustness\\
+A10\_consumer\_zconeval\_all & zconeval\_all & treatratio\_lnoncomp & 0.0480 & 0.0870 & 0.5519 & 0.5826 & 1804 & NA & NA & NA & consumer local-exposure robustness\\
+A10\_consumer\_zconeval\_all & zconeval\_all & treatratio\_nonlcomp & -0.1225 & 0.1466 & -0.8361 & 0.4058 & 1804 & NA & NA & NA & consumer local-exposure robustness\\
+A10\_consumer\_zconeval\_all & zconeval\_all & treatratio\_nonlnoncomp & 0.0169 & 0.1433 & 0.1181 & 0.9063 & 1804 & NA & NA & NA & consumer local-exposure robustness\\
+\addlinespace
+A10\_firm\_lnpart5revenue & lnpart5revenue & interpost & 0.0953 & 0.0401 & 2.3749 & 0.0200 & 8220 & NA & Firm FE + Post & NA & firm local-exposure robustness\\
+A10\_firm\_lnpart5revenue & lnpart5revenue & localinter1 & -0.1221 & 0.0543 & -2.2470 & 0.0275 & 8220 & NA & Firm FE + Post & NA & firm local-exposure robustness\\
+A10\_firm\_lnpart5revenue & lnpart5revenue & localinter2 & 0.1900 & 0.0499 & 3.8105 & 0.0003 & 8220 & NA & Firm FE + Post & NA & firm local-exposure robustness\\
+A10\_firm\_lnpart5revenue & lnpart5revenue & localinter10 & -0.0004 & 0.0878 & -0.0048 & 0.9962 & 8220 & NA & Firm FE + Post & NA & firm local-exposure robustness\\
+A10\_firm\_lnpart5revenue & lnpart5revenue & localinter5 & 0.0523 & 0.0623 & 0.8385 & 0.4043 & 8220 & NA & Firm FE + Post & NA & firm local-exposure robustness\\
+\addlinespace
+A10\_firm\_lnpart5revenue & lnpart5revenue & localinter6 & -0.1129 & 0.0834 & -1.3528 & 0.1801 & 8220 & NA & Firm FE + Post & NA & firm local-exposure robustness\\
+A10\_firm\_total\_profit & total\_profit & interpost & 10.1438 & 2.7140 & 3.7376 & 0.0004 & 8220 & NA & Firm FE + Post & NA & firm local-exposure robustness\\
+A10\_firm\_total\_profit & total\_profit & localinter1 & -12.4156 & 5.8522 & -2.1215 & 0.0371 & 8220 & NA & Firm FE + Post & NA & firm local-exposure robustness\\
+A10\_firm\_total\_profit & total\_profit & localinter2 & 14.3217 & 5.2337 & 2.7364 & 0.0077 & 8220 & NA & Firm FE + Post & NA & firm local-exposure robustness\\
+A10\_firm\_total\_profit & total\_profit & localinter10 & -10.5495 & 5.2985 & -1.9910 & 0.0500 & 8220 & NA & Firm FE + Post & NA & firm local-exposure robustness\\
+\addlinespace
+A10\_firm\_total\_profit & total\_profit & localinter6 & 6.5412 & 9.3955 & 0.6962 & 0.4884 & 8220 & NA & Firm FE + Post & NA & firm local-exposure robustness\\
+A10\_firm\_lnlabor & lnlabor & interpost & 0.0792 & 0.0309 & 2.5605 & 0.0124 & 8220 & NA & Firm FE + Post & NA & firm local-exposure robustness\\
+A10\_firm\_lnlabor & lnlabor & localinter1 & -0.0606 & 0.0386 & -1.5690 & 0.1208 & 8220 & NA & Firm FE + Post & NA & firm local-exposure robustness\\
+A10\_firm\_lnlabor & lnlabor & localinter2 & 0.0657 & 0.0298 & 2.2059 & 0.0304 & 8220 & NA & Firm FE + Post & NA & firm local-exposure robustness\\
+A10\_firm\_lnlabor & lnlabor & localinter10 & -0.0895 & 0.0430 & -2.0814 & 0.0407 & 8220 & NA & Firm FE + Post & NA & firm local-exposure robustness\\
+\addlinespace
+A10\_firm\_lnlabor & lnlabor & localinter5 & -0.0361 & 0.0479 & -0.7544 & 0.4529 & 8220 & NA & Firm FE + Post & NA & firm local-exposure robustness\\
+A10\_firm\_lnlabor & lnlabor & localinter6 & 0.0427 & 0.0511 & 0.8356 & 0.4060 & 8220 & NA & Firm FE + Post & NA & firm local-exposure robustness\\
+\bottomrule
+\end{tabular}
+\end{table}
