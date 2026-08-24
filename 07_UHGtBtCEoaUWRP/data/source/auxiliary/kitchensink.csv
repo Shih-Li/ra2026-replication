@@ -1,0 +1,431 @@
+Variable_baseline, Variable_midline, Label
+bn_age, Lbn_age, Beneficiary age
+ , mLbn_age, Missing: Beneficiary age
+bn_alt_aspiration, Lbn_alt_aspiration, Aspirations (Future only)
+ , mLbn_alt_aspiration, Missing: Aspirations (Future only)
+bn_aspiration, Lbn_aspiration, Aspirations
+ , mLbn_aspiration, Missing: Aspirations
+bn_big_five, Lbn_big_five, Big Five Index
+ , mLbn_big_five, Missing: Big Five Index
+bn_borrow_agr, Lbn_borrow_agr, Value of beneficiary debt from agri input supplier
+ , mLbn_borrow_agr, Missing: Value of beneficiary debt from agri input supplier
+bn_borrow_bank, Lbn_borrow_bank, Value of beneficiary debt from banks
+ , mLbn_borrow_bank, Missing: Value of beneficiary debt from banks
+bn_borrow_coop, Lbn_borrow_coop, Value of beneficiary debt from co-op/associations
+ , mLbn_borrow_coop, Missing: Value of beneficiary debt from co-op/associations
+bn_borrow_micro, Lbn_borrow_micro, Value of beneficiary debt from microfinance institutions
+ , mLbn_borrow_micro, Missing: Value of beneficiary debt from microfinance institutions
+bn_borrow_neighb, Lbn_borrow_neighb, Value of beneficiary debt from friends/neighbours
+ , mLbn_borrow_neighb, Missing: Value of beneficiary debt from friends/neighbours
+bn_borrow_ngo, Lbn_borrow_ngo, Value of beneficiary debt from NGOs
+ , mLbn_borrow_ngo, Missing: Value of beneficiary debt from NGOs
+bn_borrow_other, Lbn_borrow_other, Value of beneficiary debt from other sources
+ , mLbn_borrow_other, Missing: Value of beneficiary debt from other sources
+bn_borrow_private, Lbn_borrow_private, Value of beneficiary debt from private money lender
+ , mLbn_borrow_private, Missing: Value of beneficiary debt from private money lender
+bn_borrow_relative, Lbn_borrow_relative, Value of beneficiary debt from relatives
+ , mLbn_borrow_relative, Missing: Value of beneficiary debt from relatives
+bn_borrow_sacco, Lbn_borrow_sacco, Value of beneficiary debt from SACCO
+ , mLbn_borrow_sacco, Missing: Value of beneficiary debt from SACCO
+bn_borrowing, Lbn_borrowing, Beneficiary stock of debt
+ , mLbn_borrowing, Missing: Beneficiary stock of debt
+bn_buscont_adv, Lbn_buscont_adv, Ind. for business contact who would take advantage of ben.
+ , mLbn_buscont_adv, Missing: Ind. for business contact who would take advantage of ben.
+bn_buscont_diffrel, Lbn_buscont_diffrel, Ind. for contact beneficiary has difficulty in business relation
+ , mLbn_buscont_diffrel, Missing: Ind. for contact beneficiary has difficulty in business relation
+bn_busi_before, Lbn_busi_before, Ind. for starting business before
+ , mLbn_busi_before, Missing: Ind. for starting business before
+bn_busiemp_nonhh, Lbn_busiemp_nonhh, No. of non-HH members employed
+ , mLbn_busiemp_nonhh, Missing: No. of non-HH members employed
+bn_busiknowledge, Lbn_busiknowledge, Business Knowledge
+ , mLbn_busiknowledge, Missing: Business Knowledge
+bn_business_attitude, Lbn_business_attitude, Business Attitudes
+ , mLbn_business_attitude, Missing: Business Attitudes
+bn_business_knowledge, Lbn_business_knowledge, Business Knowledge
+ , mLbn_business_knowledge, Missing: Business Knowledge
+bn_cash_hold_amt, Lbn_cash_hold_amt, Amount of cash holding beneficiary is comfortable with
+ , mLbn_cash_hold_amt, Missing: Amount of cash holding beneficiary is comfortable with
+bn_cash_hold_comfort, Lbn_cash_hold_comfort, Ind. for beneficiaries comforatble holding cash
+ , mLbn_cash_hold_comfort, Missing: Ind. for beneficiaries comforatble holding cash
+bn_consumption, Lbn_consumption, Beneficiary-specific expenditure
+ , mLbn_consumption, Missing: Beneficiary-specific expenditure
+bn_coop_debt, Lbn_coop_debt, Ind. for beneficiary borr from co-operatives
+ , mLbn_coop_debt, Missing: Ind. for beneficiary borr from co-operatives
+bn_currjob, Lbn_currjob, Ind. if beneficiary has a current job
+ , mLbn_currjob, Missing: Ind. if beneficiary has a current job
+bn_dayswork, Lbn_dayswork, Days worked in a week
+ , mLbn_dayswork, Missing: Days worked in a week
+bn_durann_cons, Lbn_durann_cons, Types of frequent [annual] items bought & consumed
+ , mLbn_durann_cons, Missing: Types of frequent [annual] items bought & consumed
+bn_durexp_own_alco, Lbn_durexp_own_alco, Beneficiary expenditure on alco
+ , mLbn_durexp_own_alco, Missing: Beneficiary expenditure on alco
+bn_durexp_own_cigar, Lbn_durexp_own_cigar, Beneficiary expenditure on cigar
+ , mLbn_durexp_own_cigar, Missing: Beneficiary expenditure on cigar
+bn_durexp_own_cloth, Lbn_durexp_own_cloth, Beneficiary expenditure on cloth
+ , mLbn_durexp_own_cloth, Missing: Beneficiary expenditure on cloth
+bn_durexp_own_condom, Lbn_durexp_own_condom, Beneficiary expenditure on condom
+ , mLbn_durexp_own_condom, Missing: Beneficiary expenditure on condom
+bn_durexp_own_phone, Lbn_durexp_own_phone, Beneficiary expenditure on phone
+ , mLbn_durexp_own_phone, Missing: Beneficiary expenditure on phone
+bn_durexp_own_purse, Lbn_durexp_own_purse, Beneficiary expenditure on purse
+ , mLbn_durexp_own_purse, Missing: Beneficiary expenditure on purse
+bn_durexp_own_shoe, Lbn_durexp_own_shoe, Beneficiary expenditure on shoe
+ , mLbn_durexp_own_shoe, Missing: Beneficiary expenditure on shoe
+bn_educ, Lbn_educ, Beneficiary education level
+ , mLbn_educ, Missing: Beneficiary education level
+bn_edyrs, Lbn_edyrs, Beneficiary years of education
+ , mLbn_edyrs, Missing: Beneficiary years of education
+bn_employed, Lbn_employed, Employed
+ , mLbn_employed, Missing: Employed
+bn_female, Lbn_female, Beneficiary female
+ , mLbn_female, Missing: Beneficiary female
+bn_findworkhrs, Lbn_findworkhrs, Hours spent looking for work
+ , mLbn_findworkhrs, Missing: Hours spent looking for work
+bn_first_job, Lbn_first_job, Ind. for current job as first job
+ , mLbn_first_job, Missing: Ind. for current job as first job
+bn_freqexp_own_beer, Lbn_freqexp_own_beer, Beneficiary expenditure on beer
+ , mLbn_freqexp_own_beer, Missing: Beneficiary expenditure on beer
+bn_freqexp_own_cake, Lbn_freqexp_own_cake, Beneficiary expenditure on cake
+ , mLbn_freqexp_own_cake, Missing: Beneficiary expenditure on cake
+bn_freqexp_own_cream, Lbn_freqexp_own_cream, Beneficiary expenditure on cream
+ , mLbn_freqexp_own_cream, Missing: Beneficiary expenditure on cream
+bn_freqexp_own_hair, Lbn_freqexp_own_hair, Beneficiary expenditure on hair
+ , mLbn_freqexp_own_hair, Missing: Beneficiary expenditure on hair
+bn_freqexp_own_soap, Lbn_freqexp_own_soap, Beneficiary expenditure on soap
+ , mLbn_freqexp_own_soap, Missing: Beneficiary expenditure on soap
+bn_freqexp_own_soda, Lbn_freqexp_own_soda, Beneficiary expenditure on soda
+ , mLbn_freqexp_own_soda, Missing: Beneficiary expenditure on soda
+bn_freqmth_cons, Lbn_freqmth_cons, Types of frequent [monthly] items bought & consumed
+ , mLbn_freqmth_cons, Missing: Types of frequent [monthly] items bought & consumed
+bn_frnd_debt, Lbn_frnd_debt, Ind. for beneficiary borr from friends/neighbors
+ , mLbn_frnd_debt, Missing: Ind. for beneficiary borr from friends/neighbors
+bn_grp_sav, Lbn_grp_sav, Ind. for beneficiary with Group Savings
+ , mLbn_grp_sav, Missing: Ind. for beneficiary with Group Savings
+bn_income_levels, Lbn_income_levels, Beneficiary monthly income (levels, winsorized)
+ , mLbn_income_levels, Missing: Beneficiary monthly income (levels, winsorized)
+bn_intern, Lbn_intern, Ind. for beneficiary having had an intenrship
+ , mLbn_intern, Missing: Ind. for beneficiary having had an intenrship
+bn_labgame_diff, Lbn_labgame_diff, Beneficiary's difficulty understanding lab games
+ , mLbn_labgame_diff, Missing: Beneficiary's difficulty understanding lab games
+bn_leisurehrs, Lbn_leisurehrs, Hours spent in leisure
+ , mLbn_leisurehrs, Missing: Hours spent in leisure
+bn_loc, Lbn_loc, Locus of Control
+ , mLbn_loc, Missing: Locus of Control
+bn_lottery_90day, Lbn_lottery_90day, Lottery choice for payout in 90-days
+ , mLbn_lottery_90day, Missing: Lottery choice for payout in 90-days
+bn_lottery_tmrrw, Lbn_lottery_tmrrw, Lottery choice for payout tomorrow
+ , mLbn_lottery_tmrrw, Missing: Lottery choice for payout tomorrow
+bn_mental_health, Lbn_mental_health, Mental health
+ , mLbn_mental_health, Missing: Mental health
+bn_mig_wage, Lbn_mig_wage, Beneficiary compensatory wages to migrate
+ , mLbn_mig_wage, Missing: Beneficiary compensatory wages to migrate
+bn_mob_sav, Lbn_mob_sav, Ind. for beneficiary with Mobile Savings
+ , mLbn_mob_sav, Missing: Ind. for beneficiary with Mobile Savings
+bn_month_consumption_levels, Lbn_month_consumption_levels, Beneficiary consumption expenditure (RWF, winsorized)
+ , mLbn_month_consumption_levels, Missing: Beneficiary consumption expenditure (RWF, winsorized)
+bn_monthly_income, Lbn_monthly_income, Monthly income
+ , mLbn_monthly_income, Missing: Monthly income
+bn_mult_lookforjob, Lbn_mult_lookforjob, Ind. for beneficiaries looking at multiple source for jobs
+ , mLbn_mult_lookforjob, Missing: Ind. for beneficiaries looking at multiple source for jobs
+bn_ownidea, Lbn_ownidea, Ind. for beneficiary's own idea
+ , mLbn_ownidea, Missing: Ind. for beneficiary's own idea
+bn_parent_decsav, Lbn_parent_decsav, Ind. for any parent involvement in saving decision
+ , mLbn_parent_decsav, Missing: Ind. for any parent involvement in saving decision
+bn_perassets, Lbn_perassets, No. of personal assets owned
+ , mLbn_perassets, Missing: No. of personal assets owned
+bn_prodasset_levels, Lbn_prodasset_levels, Beneficiary total Productive assets (levels, winsorized)
+ , mLbn_prodasset_levels, Missing: Beneficiary total Productive assets (levels, winsorized)
+bn_productive_hrs, Lbn_productive_hrs, Productive time use, hrs
+ , mLbn_productive_hrs, Missing: Productive time use, hrs
+bn_rel_debt, Lbn_rel_debt, Ind. for beneficiary borr from relatives
+ , mLbn_rel_debt, Missing: Ind. for beneficiary borr from relatives
+bn_risk_aversion, Lbn_risk_aversion, Indicator for risk averse beneficiaries
+ , mLbn_risk_aversion, Missing: Indicator for risk averse beneficiaries
+bn_rosca_sav, Lbn_rosca_sav, Ind. for beneficiary with ROSCA Savings
+ , mLbn_rosca_sav, Missing: Ind. for beneficiary with ROSCA Savings
+bn_save_bank, Lbn_save_bank, Value of beneficiary's bank savings
+ , mLbn_save_bank, Missing: Value of beneficiary's bank savings
+bn_save_crop, Lbn_save_crop, Value of beneficiary's crop storage savings
+ , mLbn_save_crop, Missing: Value of beneficiary's crop storage savings
+bn_save_grps, Lbn_save_grps, Value of beneficiary's Savings Group savings
+ , mLbn_save_grps, Missing: Value of beneficiary's Savings Group savings
+bn_save_home, Lbn_save_home, Value of beneficiary's home[cash] savings
+ , mLbn_save_home, Missing: Value of beneficiary's home[cash] savings
+bn_save_micro, Lbn_save_micro, Value of beneficiary's microfinance savings
+ , mLbn_save_micro, Missing: Value of beneficiary's microfinance savings
+bn_save_mobile, Lbn_save_mobile, Value of beneficiary's mobile savings
+ , mLbn_save_mobile, Missing: Value of beneficiary's mobile savings
+bn_save_other, Lbn_save_other, Value of beneficiary's other savings
+ , mLbn_save_other, Missing: Value of beneficiary's other savings
+bn_save_rosca, Lbn_save_rosca, Value of beneficiary's ROSCA savings
+ , mLbn_save_rosca, Missing: Value of beneficiary's ROSCA savings
+bn_save_sacco, Lbn_save_sacco, Value of beneficiary's SACCO savings
+ , mLbn_save_sacco, Missing: Value of beneficiary's SACCO savings
+bn_savings, Lbn_savings, Beneficiary stock of savings
+ , mLbn_savings, Missing: Beneficiary stock of savings
+bn_schhrs, Lbn_schhrs, Hours spent schooling/studying
+ , mLbn_schhrs, Missing: Hours spent schooling/studying
+bn_schyears, Lbn_schyears, Beneficiary Years of Schooling
+ , mLbn_schyears, Missing: Beneficiary Years of Schooling
+bn_season_job, Lbn_season_job, Ind. for seasonal job
+ , mLbn_season_job, Missing: Ind. for seasonal job
+bn_self_emp, Lbn_self_emp, Ind. for Beneficiary is self-employed
+ , mLbn_self_emp, Missing: Ind. for Beneficiary is self-employed
+bn_single, Lbn_single, Beneficiary Marital Status: Single
+ , mLbn_single, Missing: Beneficiary Marital Status: Single
+bn_swb, Lbn_swb, Subjective well-being
+ , mLbn_swb, Missing: Subjective well-being
+bn_tot_prod_assetval, Lbn_tot_prod_assetval, Productive assets
+ , mLbn_tot_prod_assetval, Missing: Productive assets
+bn_ubud_cat, Lbn_ubud_cat, Beneficiary Ubudehe Category
+ , mLbn_ubud_cat, Missing: Beneficiary Ubudehe Category
+bn_villhrs, Lbn_villhrs, Hours spent doing village activities
+ , mLbn_villhrs, Missing: Hours spent doing village activities
+hh_ag_output, Lhh_ag_output, HH sold agricultural output
+ , mLhh_ag_output, Missing: HH sold agricultural output
+hh_ann_cons, Lhh_ann_cons, No. of durable items consumed (annual) by HH 
+ , mLhh_ann_cons, Missing: No. of durable items consumed (annual) by HH 
+hh_asset_val, Lhh_asset_val, Total value of HH assets
+ , mLhh_asset_val, Missing: Total value of HH assets
+hh_borrow_agr, Lhh_borrow_agr, Value of HH debt from agri input supplier
+ , mLhh_borrow_agr, Missing: Value of HH debt from agri input supplier
+hh_borrow_bank, Lhh_borrow_bank, Value of HH debt from banks
+ , mLhh_borrow_bank, Missing: Value of HH debt from banks
+hh_borrow_coop, Lhh_borrow_coop, Value of HH debt from co-op/associations
+ , mLhh_borrow_coop, Missing: Value of HH debt from co-op/associations
+hh_borrow_micro, Lhh_borrow_micro, Value of HH debt from microfinance institutions
+ , mLhh_borrow_micro, Missing: Value of HH debt from microfinance institutions
+hh_borrow_neighb, Lhh_borrow_neighb, Value of HH debt from friends/neighbours
+ , mLhh_borrow_neighb, Missing: Value of HH debt from friends/neighbours
+hh_borrow_ngo, Lhh_borrow_ngo, Value of HH debt from NGOs
+ , mLhh_borrow_ngo, Missing: Value of HH debt from NGOs
+hh_borrow_other, Lhh_borrow_other, Value of HH debt from other sources
+ , mLhh_borrow_other, Missing: Value of HH debt from other sources
+hh_borrow_private, Lhh_borrow_private, Value of HH debt from private money lender
+ , mLhh_borrow_private, Missing: Value of HH debt from private money lender
+hh_borrow_relative, Lhh_borrow_relative, Value of HH debt from relatives
+ , mLhh_borrow_relative, Missing: Value of HH debt from relatives
+hh_borrow_sacco, Lhh_borrow_sacco, Value of HH debt from SACCO
+ , mLhh_borrow_sacco, Missing: Value of HH debt from SACCO
+hh_borrowing, Lhh_borrowing, HH value of borrowing stock
+ , mLhh_borrowing, Missing: HH value of borrowing stock
+hh_cookfuel, Lhh_cookfuel, HH Dwelling's cooking fuel
+ , mLhh_cookfuel, Missing: HH Dwelling's cooking fuel
+hh_coop_debt, Lhh_coop_debt, Ind. for HH borr from co-operatives
+ , mLhh_coop_debt, Missing: Ind. for HH borr from co-operatives
+hh_dietarydiversity, Lhh_dietarydiversity, HH dietary diversity score
+ , mLhh_dietarydiversity, Missing: HH dietary diversity score
+hh_drinkwat, Lhh_drinkwat, HH main source of drinking water
+ , mLhh_drinkwat, Missing: HH main source of drinking water
+hh_dwellval, Lhh_dwellval, HH Dwelling value
+ , mLhh_dwellval, Missing: HH Dwelling value
+hh_floor, Lhh_floor, HH Dwelling's floor material
+ , mLhh_floor, Missing: HH Dwelling's floor material
+hh_frnd_debt, Lhh_frnd_debt, Ind. for HH borr from friends/neighbors
+ , mLhh_frnd_debt, Missing: Ind. for HH borr from friends/neighbors
+hh_gift, Lhh_gift, Ind. for gift recd. by HH
+ , mLhh_gift, Missing: Ind. for gift recd. by HH
+hh_grp_sav, Lhh_grp_sav, Ind. for HH with Group Savings
+ , mLhh_grp_sav, Missing: Ind. for HH with Group Savings
+hh_head_age, Lhh_head_age, Age of HH head
+ , mLhh_head_age, Missing: Age of HH head
+hh_head_fem, Lhh_head_fem, Female HH head
+ , mLhh_head_fem, Missing: Female HH head
+hh_head_marital, Lhh_head_marital, Marital Status of HH head
+ , mLhh_head_marital, Missing: Marital Status of HH head
+hh_land_own, Lhh_land_own, HH owns the land they live on
+ , mLhh_land_own, Missing: HH owns the land they live on
+hh_livestock_wealth, Lhh_livestock_wealth, No. of livestock assets owned by HH
+ , mLhh_livestock_wealth, Missing: No. of livestock assets owned by HH
+hh_members, Lhh_members, Household members
+ , mLhh_members, Missing: Household members
+hh_mobile_sav, Lhh_mobile_sav, Ind. for HH with Mobile Savings
+ , mLhh_mobile_sav, Missing: Ind. for HH with Mobile Savings
+hh_money_lent, Lhh_money_lent, Ind. for money lent by HH member
+ , mLhh_money_lent, Missing: Ind. for money lent by HH member
+hh_month_consumption_pc, Lhh_month_consumption_pc, HH consumption per capita
+ , mLhh_month_consumption_pc, Missing: HH consumption per capita
+hh_month_consumption_pc_levels, Lhh_month_consumption_pc_levels, Household monthly consumption per capita, RWF
+ , mLhh_month_consumption_pc_levels, Missing: Household monthly consumption per capita, RWF
+hh_monthly_cons, Lhh_monthly_cons, No. of items consumed (monthly) by HH
+ , mLhh_monthly_cons, Missing: No. of items consumed (monthly) by HH
+hh_net_wealth, Lhh_net_wealth, HH net non-land wealth
+ , mLhh_net_wealth, Missing: HH net non-land wealth
+hh_no_sav, Lhh_no_sav, Ind. for HH with no savings
+ , mLhh_no_sav, Missing: Ind. for HH with no savings
+hh_nonlivestock, Lhh_nonlivestock, No. of non-livestock assets owned by HH (including others)
+ , mLhh_nonlivestock, Missing: No. of non-livestock assets owned by HH (including others)
+hh_number, Lhh_number, Number of beneficiaries per HH
+ , mLhh_number, Missing: Number of beneficiaries per HH
+hh_number_livestock, Lhh_number_livestock, hh_number_livestock
+ , mLhh_number_livestock, Missing: hh_number_livestock
+hh_out_loan, Lhh_out_loan, Value of outstanding HH loans
+ , mLhh_out_loan, Missing: Value of outstanding HH loans
+hh_owndwelling, Lhh_owndwelling, Ind. for HH owns the dwelling
+ , mLhh_owndwelling, Missing: Ind. for HH owns the dwelling
+hh_ownprod_cons, Lhh_ownprod_cons, No. of own production items consumed by HH
+ , mLhh_ownprod_cons, Missing: No. of own production items consumed by HH
+hh_rel_debt, Lhh_rel_debt, Ind. for HH borr from other
+ , mLhh_rel_debt, Missing: Ind. for HH borr from other
+hh_roof, Lhh_roof, HH Dwelling's roof material
+ , mLhh_roof, Missing: HH Dwelling's roof material
+hh_rooms, Lhh_rooms, HH Dwelling's number of rooms
+ , mLhh_rooms, Missing: HH Dwelling's number of rooms
+hh_rosca_sav, Lhh_rosca_sav, Ind. for HH with ROSCA Savings
+ , mLhh_rosca_sav, Missing: Ind. for HH with ROSCA Savings
+hh_sacco_sav, Lhh_sacco_sav, Ind. for HH with SACCO Savings
+ , mLhh_sacco_sav, Missing: Ind. for HH with SACCO Savings
+hh_save_bank, Lhh_save_bank, Value of HH's bank savings
+ , mLhh_save_bank, Missing: Value of HH's bank savings
+hh_save_crop, Lhh_save_crop, Value of HH's crop storage savings
+ , mLhh_save_crop, Missing: Value of HH's crop storage savings
+hh_save_grps, Lhh_save_grps, Value of HH's Savings Group savings
+ , mLhh_save_grps, Missing: Value of HH's Savings Group savings
+hh_save_home, Lhh_save_home, Value of HH's home[cash] savings
+ , mLhh_save_home, Missing: Value of HH's home[cash] savings
+hh_save_micro, Lhh_save_micro, Value of HH's microfinance savings
+ , mLhh_save_micro, Missing: Value of HH's microfinance savings
+hh_save_mobile, Lhh_save_mobile, Value of HH's mobile savings
+ , mLhh_save_mobile, Missing: Value of HH's mobile savings
+hh_save_other, Lhh_save_other, Value of HH's other savings
+ , mLhh_save_other, Missing: Value of HH's other savings
+hh_save_rosca, Lhh_save_rosca, Value of HH's ROSCA savings
+ , mLhh_save_rosca, Missing: Value of HH's ROSCA savings
+hh_save_sacco, Lhh_save_sacco, Value of HH's SACCO savings
+ , mLhh_save_sacco, Missing: Value of HH's SACCO savings
+hh_savings, Lhh_savings, HH stock of savings
+ , mLhh_savings, Missing: HH stock of savings
+hh_sharecrop, Lhh_sharecrop, HH sharecropped land
+ , mLhh_sharecrop, Missing: HH sharecropped land
+hh_soc_cont, Lhh_soc_cont, No. of contacts listed
+ , mLhh_soc_cont, Missing: No. of contacts listed
+hh_toilet, Lhh_toilet, HH toilet facility
+ , mLhh_toilet, Missing: HH toilet facility
+hh_val_cons_armch, Lhh_val_cons_armch, Value of armch owned by HH
+ , mLhh_val_cons_armch, Missing: Value of armch owned by HH
+hh_val_cons_beds, Lhh_val_cons_beds, Value of beds owned by HH
+ , mLhh_val_cons_beds, Missing: Value of beds owned by HH
+hh_val_cons_casset, Lhh_val_cons_casset, Value of casset owned by HH
+ , mLhh_val_cons_casset, Missing: Value of casset owned by HH
+hh_val_cons_large, Lhh_val_cons_large, Value of large owned by HH
+ , mLhh_val_cons_large, Missing: Value of large owned by HH
+hh_val_cons_mattre, Lhh_val_cons_mattre, Value of mattre owned by HH
+ , mLhh_val_cons_mattre, Missing: Value of mattre owned by HH
+hh_val_cons_othertables, Lhh_val_cons_othertables, Value of othertables owned by HH
+ , mLhh_val_cons_othertables, Missing: Value of othertables owned by HH
+hh_val_cons_radios, Lhh_val_cons_radios, Value of radios owned by HH
+ , mLhh_val_cons_radios, Missing: Value of radios owned by HH
+hh_val_cons_sofas, Lhh_val_cons_sofas, Value of sofas owned by HH
+ , mLhh_val_cons_sofas, Missing: Value of sofas owned by HH
+hh_val_cons_straig, Lhh_val_cons_straig, Value of straig owned by HH
+ , mLhh_val_cons_straig, Missing: Value of straig owned by HH
+hh_val_cons_televi, Lhh_val_cons_televi, Value of televi owned by HH
+ , mLhh_val_cons_televi, Missing: Value of televi owned by HH
+hh_val_cons_video, Lhh_val_cons_video, Value of video owned by HH
+ , mLhh_val_cons_video, Missing: Value of video owned by HH
+hh_val_livestock_cattle, Lhh_val_livestock_cattle, Value of cattle owned by HH
+ , mLhh_val_livestock_cattle, Missing: Value of cattle owned by HH
+hh_val_livestock_chickens, Lhh_val_livestock_chickens, Value of chickens owned by HH
+ , mLhh_val_livestock_chickens, Missing: Value of chickens owned by HH
+hh_val_livestock_ducks, Lhh_val_livestock_ducks, Value of ducks owned by HH
+ , mLhh_val_livestock_ducks, Missing: Value of ducks owned by HH
+hh_val_livestock_goats, Lhh_val_livestock_goats, Value of goats owned by HH
+ , mLhh_val_livestock_goats, Missing: Value of goats owned by HH
+hh_val_livestock_oxen, Lhh_val_livestock_oxen, Value of oxen owned by HH
+ , mLhh_val_livestock_oxen, Missing: Value of oxen owned by HH
+hh_val_livestock_pigs, Lhh_val_livestock_pigs, Value of pigs owned by HH
+ , mLhh_val_livestock_pigs, Missing: Value of pigs owned by HH
+hh_val_livestock_sheep, Lhh_val_livestock_sheep, Value of sheep owned by HH
+ , mLhh_val_livestock_sheep, Missing: Value of sheep owned by HH
+hh_val_prod_axe, Lhh_val_prod_axe, Value of axe owned by HH
+ , mLhh_val_prod_axe, Missing: Value of axe owned by HH
+hh_val_prod_banana, Lhh_val_prod_banana, Value of banana owned by HH
+ , mLhh_val_prod_banana, Missing: Value of banana owned by HH
+hh_val_prod_bicycl, Lhh_val_prod_bicycl, Value of bicycl owned by HH
+ , mLhh_val_prod_bicycl, Missing: Value of bicycl owned by HH
+hh_val_prod_boats, Lhh_val_prod_boats, Value of boats owned by HH
+ , mLhh_val_prod_boats, Missing: Value of boats owned by HH
+hh_val_prod_carba, Lhh_val_prod_carba, Value of carba owned by HH
+ , mLhh_val_prod_carba, Missing: Value of carba owned by HH
+hh_val_prod_charcoal, Lhh_val_prod_charcoal, Value of charcoal owned by HH
+ , mLhh_val_prod_charcoal, Missing: Value of charcoal owned by HH
+hh_val_prod_cropstores, Lhh_val_prod_cropstores, Value of cropstores owned by HH
+ , mLhh_val_prod_cropstores, Missing: Value of cropstores owned by HH
+hh_val_prod_fish, Lhh_val_prod_fish, Value of fish owned by HH
+ , mLhh_val_prod_fish, Missing: Value of fish owned by HH
+hh_val_prod_freeze, Lhh_val_prod_freeze, Value of freeze owned by HH
+ , mLhh_val_prod_freeze, Missing: Value of freeze owned by HH
+hh_val_prod_genera, Lhh_val_prod_genera, Value of genera owned by HH
+ , mLhh_val_prod_genera, Missing: Value of genera owned by HH
+hh_val_prod_granar, Lhh_val_prod_granar, Value of granar owned by HH
+ , mLhh_val_prod_granar, Missing: Value of granar owned by HH
+hh_val_prod_heaps, Lhh_val_prod_heaps, Value of heaps owned by HH
+ , mLhh_val_prod_heaps, Missing: Value of heaps owned by HH
+hh_val_prod_helmet, Lhh_val_prod_helmet, Value of helmet owned by HH
+ , mLhh_val_prod_helmet, Missing: Value of helmet owned by HH
+hh_val_prod_hoes, Lhh_val_prod_hoes, Value of hoes owned by HH
+ , mLhh_val_prod_hoes, Missing: Value of hoes owned by HH
+hh_val_prod_iron, Lhh_val_prod_iron, Value of iron owned by HH
+ , mLhh_val_prod_iron, Missing: Value of iron owned by HH
+hh_val_prod_ironm, Lhh_val_prod_ironm, Value of ironm owned by HH
+ , mLhh_val_prod_ironm, Missing: Value of ironm owned by HH
+hh_val_prod_jerry, Lhh_val_prod_jerry, Value of jerry owned by HH
+ , mLhh_val_prod_jerry, Missing: Value of jerry owned by HH
+hh_val_prod_kettle, Lhh_val_prod_kettle, Value of kettle owned by HH
+ , mLhh_val_prod_kettle, Missing: Value of kettle owned by HH
+hh_val_prod_laptop, Lhh_val_prod_laptop, Value of laptop owned by HH
+ , mLhh_val_prod_laptop, Missing: Value of laptop owned by HH
+hh_val_prod_laundr, Lhh_val_prod_laundr, Value of laundr owned by HH
+ , mLhh_val_prod_laundr, Missing: Value of laundr owned by HH
+hh_val_prod_mango, Lhh_val_prod_mango, Value of mango owned by HH
+ , mLhh_val_prod_mango, Missing: Value of mango owned by HH
+hh_val_prod_mirror, Lhh_val_prod_mirror, Value of mirror owned by HH
+ , mLhh_val_prod_mirror, Missing: Value of mirror owned by HH
+hh_val_prod_mobile, Lhh_val_prod_mobile, Value of mobile owned by HH
+ , mLhh_val_prod_mobile, Missing: Value of mobile owned by HH
+hh_val_prod_motorc, Lhh_val_prod_motorc, Value of motorc owned by HH
+ , mLhh_val_prod_motorc, Missing: Value of motorc owned by HH
+hh_val_prod_motorv, Lhh_val_prod_motorv, Value of motorv owned by HH
+ , mLhh_val_prod_motorv, Missing: Value of motorv owned by HH
+hh_val_prod_othertrees, Lhh_val_prod_othertrees, Value of othertrees owned by HH
+ , mLhh_val_prod_othertrees, Missing: Value of othertrees owned by HH
+hh_val_prod_pangas, Lhh_val_prod_pangas, Value of pangas owned by HH
+ , mLhh_val_prod_pangas, Missing: Value of pangas owned by HH
+hh_val_prod_pineap, Lhh_val_prod_pineap, Value of pineap owned by HH
+ , mLhh_val_prod_pineap, Missing: Value of pineap owned by HH
+hh_val_prod_plough, Lhh_val_prod_plough, Value of plough owned by HH
+ , mLhh_val_prod_plough, Missing: Value of plough owned by HH
+hh_val_prod_pumps, Lhh_val_prod_pumps, Value of pumps owned by HH
+ , mLhh_val_prod_pumps, Missing: Value of pumps owned by HH
+hh_val_prod_refrig, Lhh_val_prod_refrig, Value of refrig owned by HH
+ , mLhh_val_prod_refrig, Missing: Value of refrig owned by HH
+hh_val_prod_satell, Lhh_val_prod_satell, Value of satell owned by HH
+ , mLhh_val_prod_satell, Missing: Value of satell owned by HH
+hh_val_prod_setso, Lhh_val_prod_setso, Value of setso owned by HH
+ , mLhh_val_prod_setso, Missing: Value of setso owned by HH
+hh_val_prod_sewing, Lhh_val_prod_sewing, Value of sewing owned by HH
+ , mLhh_val_prod_sewing, Missing: Value of sewing owned by HH
+hh_val_prod_solar, Lhh_val_prod_solar, Value of solar owned by HH
+ , mLhh_val_prod_solar, Missing: Value of solar owned by HH
+hh_val_prod_sound, Lhh_val_prod_sound, Value of sound owned by HH
+ , mLhh_val_prod_sound, Missing: Value of sound owned by HH
+hh_val_prod_speaker, Lhh_val_prod_speaker, Value of speaker owned by HH
+ , mLhh_val_prod_speaker, Missing: Value of speaker owned by HH
+hh_val_prod_spray, Lhh_val_prod_spray, Value of spray owned by HH
+ , mLhh_val_prod_spray, Missing: Value of spray owned by HH
+hh_val_prod_sprayi, Lhh_val_prod_sprayi, Value of sprayi owned by HH
+ , mLhh_val_prod_sprayi, Missing: Value of sprayi owned by HH
+hh_val_prod_stove, Lhh_val_prod_stove, Value of stove owned by HH
+ , mLhh_val_prod_stove, Missing: Value of stove owned by HH
+hh_val_prod_tracto, Lhh_val_prod_tracto, Value of tracto owned by HH
+ , mLhh_val_prod_tracto, Missing: Value of tracto owned by HH
+hh_val_prod_washb, Lhh_val_prod_washb, Value of washb owned by HH
+ , mLhh_val_prod_washb, Missing: Value of washb owned by HH
+hh_val_prod_watche, Lhh_val_prod_watche, Value of watche owned by HH
+ , mLhh_val_prod_watche, Missing: Value of watche owned by HH
+hh_val_prod_wheelb, Lhh_val_prod_wheelb, Value of wheelb owned by HH
+ , mLhh_val_prod_wheelb, Missing: Value of wheelb owned by HH
+hh_wall, Lhh_wall, HH Dwelling's wall material
+ , mLhh_wall, Missing: HH Dwelling's wall material
+hh_weekly_cons, Lhh_weekly_cons, No. of items consumed (weekly) by HH
+ , mLhh_weekly_cons, Missing: No. of items consumed (weekly) by HH
