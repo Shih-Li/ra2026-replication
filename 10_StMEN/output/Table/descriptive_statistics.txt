@@ -1,0 +1,26 @@
+Baseline Covariate,Population-Weighted Average
+Fraction participating in Employment Generating Schemes,0.045
+Fraction Below Poverty Line (BPL),0.187
+Household financial status (on 1-10 scale),3.243
+Fraction Scheduled Caste-Scheduled Tribes (SC/ST) ,0.232
+Fraction Other Backward Caste (OBC) ,0.21
+Fraction Hindu,0.872
+Fraction Muslim,0.101
+Fraction Christian,0.001
+Fraction Buddhist,0
+Fraction Literate,0.771
+Fraction unmarried,0.05
+Fraction of adults Married (living with spouse),0.504
+Fraction of adults Married (not living with spouse),0.002
+Fraction of adults Divorced or Seperated,0.001
+Fraction Widow or Widower,0.039
+Fraction who received Nursery level education or less,0.17
+Fraction who received Class 4 level education,0.086
+Fraction who received Class 9 level education,0.158
+Fraction who received Class 12 level education,0.223
+Fraction who received Graduate or Other Diploma level education ,0.081
+Number of vaccines administered to pregnant mother,2.271
+Number of vaccines administered to child since birth,4.23
+Fraction of children who received polio drops,0.998
+Number of polio drops administered to child,2.989
+Fraction of children who received immunized card,0.877

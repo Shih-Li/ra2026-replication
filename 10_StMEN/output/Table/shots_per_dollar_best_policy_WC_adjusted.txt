@@ -1,0 +1,7 @@
+best policy raw name: POOLED_gossip2XSMS2ORgossip3XSMS2ORgossip2XSMS3ORgossip3XSMS3
+best policy short name:  (Info Hubs (All), No Incentives, SMS (All))
+ATE: 0.00401595436712692
+CI lower: 0.00264599123858874
+CI upper: 0.00538596064426483
+control mean:  0.0435819112122515
+nobs:  814
