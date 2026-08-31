@@ -1,0 +1,381 @@
+# ==============================================================================
+# File: audit/function/dinkelbach_topk.R
+#
+# Purpose:
+#   Exact minimum influential set (MIS) detection for OLS target coefficients
+#   using Dinkelbach's method for linear-fractional optimization.
+#
+#   For a requested deletion size k, the function identifies the k observations
+#   whose joint removal maximally shifts the target coefficient in a specified
+#   direction.
+#
+# Empirical-audit use:
+#   This file is the frozen MIS implementation used by the empirical audits in
+#   this replication repository.
+#
+#   The standardized audit evaluates
+#
+#       k = 1, ..., floor(0.05 * N)
+#
+#   in both directions:
+#
+#       sign = +1  -> deletion set that increases the target coefficient
+#       sign = -1  -> deletion set that decreases the target coefficient
+#
+#   The selected observations are subsequently removed and the target model is
+#   re-estimated by the audit workflow. Thus this file performs the MIS search;
+#   audit_engine.R performs the path construction, exact refitting, recording,
+#   nestedness diagnostics, and output generation.
+#
+# Source:
+#   Copied from:
+#
+#       Shih-Li/mis_project_m
+#       R/dinkelbach_topk.R
+#
+#   Source blob SHA:
+#       90fbf5266962c51ce0a982285d1a54a8de324dd2
+#
+#   Keep this empirical copy fixed unless the audit methodology is deliberately
+#   updated. If updated, record the new source version/SHA.
+#
+# Theory:
+#   For OLS, after Frisch-Waugh-Lovell residualization of the target regressor
+#   against all nuisance regressors, the set influence problem reduces to a
+#   linear-fractional optimization problem.
+#
+#   Dinkelbach's method solves the fixed-k problem by iteratively updating the
+#   fractional objective and selecting the corresponding top-k observations.
+#
+# Main interfaces:
+#   dinkelbach_topk()
+#       Low-level solver operating on FWL-residualized vectors.
+#
+#   dinkelbach_topk_lm()
+#       High-level interface operating on an lm object and a target coefficient
+#       position. This is the interface used by audit_engine.R.
+#
+# Important scope:
+#   - Designed for unweighted OLS / OLS-equivalent point estimates.
+#   - Nuisance regressors remain in the model through FWL residualization.
+#   - Robust or clustered standard errors do not affect the coefficient search.
+#   - Weighted regressions, IV/2SLS, GLMs, and other nonlinear estimators require
+#     estimator-specific MIS methods and should not be silently passed here.
+#
+# ==============================================================================
+#' Exact MIS Detection via Dinkelbach's Method (Low-Level)
+#'
+#' Finds the k indices from candidate vectors (x, r) that maximise the
+#' linear-fractional objective:
+#'
+#'   sgn * sum(x[S] * r[S]) / (sum_x2_all - sum(x[S]^2))
+#'
+#' where sum_x2_all is the total sum of squares of the full predictor
+#' (including observations not in the candidate set).
+#'
+#' This is the core Dinkelbach solver. It operates on pre-orthogonalised
+#' (FWL) vectors and assumes a simple regression structure. For the
+#' multivariate case, the caller must perform FWL projection first.
+#'
+#' @param x       Numeric vector; FWL-orthogonalised predictor values for
+#'                the candidate observations (length n_candidates).
+#' @param r       Numeric vector; OLS residuals for the candidate
+#'                observations (same length as x).
+#' @param k       Integer; size of the influential set to find.
+#' @param sgn     Integer; +1 or -1, the direction of influence to maximise.
+#' @param sum_x2  Numeric; total sum of x^2 over ALL observations (not just
+#'                candidates). This is the denominator anchor. If NULL
+#'                (default), computed as sum(x^2) — correct when candidates
+#'                are the full sample.
+#' @param max_iter Integer; maximum Dinkelbach iterations (default = 50).
+#'                Convergence is guaranteed and typically occurs in 3-8.
+#' @param tol     Numeric; convergence tolerance for lambda (default = 1e-9).
+#'
+#' @return A list with components:
+#'   \item{indices}{Integer vector of length k — positions in x/r of the
+#'                  most influential observations.}
+#'   \item{dfbeta}{Numeric; the exact DFBETA value of the selected set
+#'                 (signed, in the direction of sgn).}
+#'   \item{lambda}{Numeric; the converged Dinkelbach parameter.}
+#'   \item{iterations}{Integer; number of Dinkelbach iterations used.}
+#' @export
+dinkelbach_topk <- function(x, r, k, sgn = 1L,
+                            sum_x2 = NULL,
+                            max_iter = 50L, tol = 1e-9) {
+
+  n <- length(x)
+
+  # --- Input validation ---
+  if (length(r) != n) {
+    stop("x and r must have the same length.")
+  }
+  if (k < 1L || k > n) {
+    stop(sprintf("k must be between 1 and %d (got %d).", n, k))
+  }
+  if (!sgn %in% c(1L, -1L)) {
+    stop("sgn must be +1 or -1.")
+  }
+
+  # --- Precompute numerator and denominator components ---
+  # Objective: max_S  sgn * sum(x[S]*r[S]) / (sum_x2_all - sum(x[S]^2))
+  #
+  # Dinkelbach form:  max_S  sum(n_val[S]) / (C + sum(d_val[S]))
+  #   where  n_val_i = sgn * x_i * r_i
+  #          d_val_i = -x_i^2
+  #          C       = sum_x2_all
+
+  n_val <- sgn * (x * r)
+  d_val <- -(x^2)
+
+  if (is.null(sum_x2)) {
+    sum_x2 <- sum(x^2)
+  }
+
+  # --- Dinkelbach iteration ---
+  lambda <- 0
+  idx <- integer(k)
+  n_iter <- 0L
+
+  for (iter in seq_len(max_iter)) {
+    n_iter <- iter
+
+    # Step 1: Form parametric weights
+    w <- n_val - lambda * d_val
+
+    # Step 2: Select top-k by weight (partial sort for efficiency)
+    # order() is O(n log n); for very large n, a partial sort could be
+    # used, but order() is well-optimised in R and sufficient for n < 50k
+    idx <- order(w, decreasing = TRUE)[seq_len(k)]
+
+    # Step 3: Update lambda (the Dinkelbach ratio)
+    num <- sum(n_val[idx])
+    den <- sum_x2 + sum(d_val[idx])
+
+    # Guard against degenerate denominator (all x are in S)
+    if (abs(den) < 1e-15) {
+      warning("Dinkelbach denominator near zero — degenerate design.")
+      break
+    }
+
+    new_lambda <- num / den
+
+    # Step 4: Convergence check
+    if (abs(new_lambda - lambda) < tol) {
+      lambda <- new_lambda
+      break
+    }
+    lambda <- new_lambda
+  }
+
+  # --- Compute the signed DFBETA ---
+  dfbeta_val <- sgn * lambda
+
+  return(list(
+    indices    = idx,
+    dfbeta     = dfbeta_val,
+    lambda     = lambda,
+    iterations = n_iter
+  ))
+}
+
+
+#' Exact MIS Detection via Dinkelbach's Method (lm Interface)
+#'
+#' Drop-in replacement for \code{fast_sens_topk}. Accepts a fitted lm object
+#' and returns the k row indices of the most influential observations for
+#' a target coefficient, using the exact Dinkelbach solver.
+#'
+#' Internally performs FWL (Frisch-Waugh-Lovell) projection to reduce the
+#' multivariate problem to a univariate linear-fractional program, then
+#' calls \code{dinkelbach_topk} on the projected vectors.
+#'
+#' @param mod   A fitted lm object.
+#' @param pos   Integer; column position of the target coefficient in the
+#'              design matrix (e.g., 2 for the first slope when an intercept
+#'              is present). Default = 2.
+#' @param sign  Integer; +1 or -1 direction for influence maximisation.
+#'              +1 finds the set whose removal most increases beta[pos];
+#'              -1 finds the set whose removal most decreases it.
+#' @param k     Integer; number of most influential observations to return.
+#'
+#' @return Integer vector of length k — the original row indices of the k
+#'         most influential observations. Same return type as
+#'         \code{fast_sens_topk} for drop-in compatibility.
+#' @export
+dinkelbach_topk_lm <- function(mod, pos = 2L, sign = 1L, k = 1L) {
+
+  X <- stats::model.matrix(mod)
+  y <- stats::model.response(stats::model.frame(mod))
+  N <- nrow(X)
+  p <- ncol(X)
+
+  if (pos < 1L || pos > p) {
+    stop(sprintf("pos must be between 1 and %d (got %d).", p, pos))
+  }
+  if (k < 1L || k > N) {
+    stop(sprintf("k must be between 1 and %d (got %d).", N, k))
+  }
+
+  # ------------------------------------------------------------------
+  # FWL Projection: partial out all columns except pos
+  #
+  # Let X = [Z | x_j] where x_j is the target column.
+  # FWL gives:
+  #   x_fwl = M_Z x_j       (residuals of x_j on Z)
+  #   y_fwl = M_Z y          (residuals of y on Z)
+  #   r_fwl = y_fwl - x_fwl * beta_j   (= full OLS residuals)
+  #
+  # The DFBETA for beta_j from removing set S depends only on
+  # (x_fwl, r_fwl), reducing the problem to the univariate case.
+  # ------------------------------------------------------------------
+
+  if (p == 1L) {
+    # No nuisance regressors — trivial case
+    x_fwl <- X[, 1]
+    r_fwl <- stats::residuals(mod)
+  } else {
+    Z_cols <- setdiff(seq_len(p), pos)
+    Z <- X[, Z_cols, drop = FALSE]
+
+    # Project out Z from both x_j and y
+    qr_Z <- qr(Z)
+    x_fwl <- qr.resid(qr_Z, X[, pos])
+    y_fwl <- qr.resid(qr_Z, y)
+
+    # Residuals of the FWL regression (= full model residuals)
+    # beta_j_fwl = sum(x_fwl * y_fwl) / sum(x_fwl^2)
+    r_fwl <- y_fwl - x_fwl * (sum(x_fwl * y_fwl) / sum(x_fwl^2))
+  }
+
+  # Total sum of squares of x_fwl (full sample — the denominator anchor)
+  sum_x2_full <- sum(x_fwl^2)
+
+  # --- Call the core Dinkelbach solver ---
+  result <- dinkelbach_topk(
+    x      = x_fwl,
+    r      = r_fwl,
+    k      = k,
+    sgn    = as.integer(sign),
+    sum_x2 = sum_x2_full
+  )
+
+  return(result$indices)
+}
+
+#' Exact MIS Detection with Iterative Refinement (Dinkelbach + Refit)
+#'
+#' Wraps \code{dinkelbach_topk_lm} with the same iterative refinement
+#' strategy used by \code{fast_sens_topk}: remove the current top-k,
+#' refit on the complement, re-project via FWL using the clean model,
+#' then re-run the Dinkelbach solver on all N observations. This isolates
+#' the algorithm choice (Dinkelbach vs Sherman-Morrison) from the
+#' refinement choice, enabling a clean 2x2 factorial comparison.
+#'
+#' @param mod   A fitted lm object.
+#' @param pos   Integer; column position of the target coefficient in the
+#'              design matrix (default = 2).
+#' @param sign  Integer; +1 or -1 direction for influence maximisation.
+#' @param k     Integer; number of most influential observations to return.
+#' @param max_refine Integer; maximum refinement iterations (default = 5).
+#'        Set to 0 to get single-shot behaviour identical to
+#'        \code{dinkelbach_topk_lm}.
+#'
+#' @return Integer vector of length k — the row indices of the k most
+#'         influential observations. Same return type as
+#'         \code{dinkelbach_topk_lm} and \code{fast_sens_topk}.
+#' @export
+dinkelbach_topk_refined <- function(mod, pos = 2L, sign = 1L, k = 1L,
+                                    max_refine = 5L) {
+  
+  # ------------------------------------------------------------------
+  # Step 0: Initial single-shot Dinkelbach (no refinement)
+  # ------------------------------------------------------------------
+  top_idx <- dinkelbach_topk_lm(mod, pos = pos, sign = sign, k = k)
+  
+  # Early exit: no refinement needed for k=1 or if disabled
+  if (k <= 1L || max_refine == 0L) return(top_idx)
+  
+  X <- stats::model.matrix(mod)
+  y <- stats::model.response(stats::model.frame(mod))
+  N <- nrow(X)
+  p <- ncol(X)
+  
+  Z_cols <- setdiff(seq_len(p), pos)
+  
+  # ------------------------------------------------------------------
+  # Steps 1+: Iterative refinement
+  #
+  # Same loop structure as fast_sens_topk, but the inner ranking step
+  # uses Dinkelbach (exact linear-fractional solver on the full-length
+  # clean FWL vectors) instead of Sherman-Morrison LOO scores.
+  #
+  # At each iteration:
+  #   a. Remove current top-k from the data.
+  #   b. Refit the nuisance (Z) regression on the clean complement.
+  #   c. Apply the clean Z projection to ALL N observations to get
+  #      x_fwl and y_fwl under the clean model.
+  #   d. Compute beta_j from the clean FWL (complement only).
+  #   e. Compute residuals for ALL N observations.
+  #   f. Run dinkelbach_topk on the full-length vectors.
+  #
+  # This unmasking works because: after removing the current outlier
+  # candidates, the clean FWL projection is no longer distorted by
+  # their collective influence, so previously masked outliers become
+  # visible to the Dinkelbach solver.
+  # ------------------------------------------------------------------
+  for (iter in seq_len(max_refine)) {
+    prev_idx <- top_idx
+    
+    keep   <- setdiff(seq_len(N), top_idx)
+    X_keep <- X[keep, , drop = FALSE]
+    y_keep <- y[keep]
+    
+    # Rank check on the reduced design matrix
+    qr_keep <- qr(X_keep)
+    if (qr_keep$rank < p) break
+    
+    # ---- FWL on clean subset, applied to all N ----
+    if (length(Z_cols) == 0L) {
+      # No nuisance regressors — trivial case (p == 1)
+      x_fwl <- X[, pos]
+      beta_j <- sum(x_fwl[keep] * y_keep) / sum(x_fwl[keep]^2)
+      r_fwl  <- y - x_fwl * beta_j
+    } else {
+      Z_all   <- X[, Z_cols, drop = FALSE]
+      Z_clean <- X_keep[, Z_cols, drop = FALSE]
+      
+      # Fit Z regression on clean subset only
+      qr_Z_clean <- qr(Z_clean)
+      
+      # Projection coefficients from clean Z
+      gamma_x <- qr.coef(qr_Z_clean, X_keep[, pos])
+      gamma_y <- qr.coef(qr_Z_clean, y_keep)
+      
+      # Apply clean projection to ALL N observations
+      x_fwl <- X[, pos] - Z_all %*% gamma_x
+      y_fwl <- y - Z_all %*% gamma_y
+      
+      # Beta_j from clean FWL values (complement only)
+      beta_j <- sum(x_fwl[keep] * y_fwl[keep]) / sum(x_fwl[keep]^2)
+      r_fwl  <- y_fwl - x_fwl * beta_j
+    }
+    
+    # ---- Dinkelbach on full-length clean FWL vectors ----
+    sum_x2_full <- sum(x_fwl^2)
+    
+    result <- dinkelbach_topk(
+      x      = x_fwl,
+      r      = r_fwl,
+      k      = k,
+      sgn    = as.integer(sign),
+      sum_x2 = sum_x2_full
+    )
+    
+    top_idx <- result$indices
+    
+    # Convergence: selected set hasn't changed
+    if (setequal(top_idx, prev_idx)) break
+  }
+  
+  return(top_idx)
+}
