@@ -7,7 +7,6 @@
 # Requires:
 #   audit_validate.R
 #   dinkelbach_topk_lm()
-#   fast_sens_topk() if run_greedy = TRUE
 #
 # Default protocol:
 #   k = 1, ..., floor(0.05 * N)
@@ -16,11 +15,9 @@
 # For each k:
 #   - exact/main MIS increasing target slope
 #   - exact/main MIS decreasing target slope
-#   - fast/greedy benchmark in both directions
 #   - exact re-estimation with the paper's estimator
 #   - observation IDs
 #   - nestedness
-#   - MIS/greedy Jaccard overlap
 # ==============================================================================
 
 
@@ -106,30 +103,6 @@
   
   idx
 }
-
-
-audit_jaccard <- function(
-    a,
-    b
-) {
-  
-  a <- unique(a)
-  b <- unique(b)
-  
-  u <- union(a, b)
-  
-  if (length(u) == 0L) {
-    return(
-      NA_real_
-    )
-  }
-  
-  length(
-    intersect(a, b)
-  ) /
-    length(u)
-}
-
 
 # ------------------------------------------------------------------------------
 # k protocol
@@ -420,28 +393,6 @@ summarise_mis_audit <- function(
     max(valid_rel)
   }
   
-  jac <- path$jaccard_greedy[
-    is.finite(
-      path$jaccard_greedy
-    )
-  ]
-  
-  mean_jaccard <- if (
-    length(jac) == 0L
-  ) {
-    NA_real_
-  } else {
-    mean(jac)
-  }
-  
-  min_jaccard <- if (
-    length(jac) == 0L
-  ) {
-    NA_real_
-  } else {
-    min(jac)
-  }
-  
   non_nested_events <- sum(
     path$nested_mis == FALSE,
     na.rm = TRUE
@@ -511,12 +462,6 @@ summarise_mis_audit <- function(
     direction_sign_flip =
       sign_flip$direction,
     
-    mean_jaccard_greedy =
-      mean_jaccard,
-    
-    min_jaccard_greedy =
-      min_jaccard,
-    
     non_nested_events =
       non_nested_events,
     
@@ -532,7 +477,6 @@ summarise_mis_audit <- function(
 run_mis_audit <- function(
     spec,
     mis_fn = NULL,
-    greedy_fn = NULL,
     verbose = TRUE
 ) {
   
@@ -560,15 +504,6 @@ run_mis_audit <- function(
     )
   }
   
-  if (
-    prepared$spec$run_greedy &&
-    is.null(greedy_fn)
-  ) {
-    greedy_fn <- .audit_engine_require(
-      "fast_sens_topk"
-    )
-  }
-  
   k_grid <- .audit_resolve_k_grid(
     prepared
   )
@@ -581,9 +516,7 @@ run_mis_audit <- function(
   
   beta0 <- prepared$beta_reference
   
-  ids <- prepared$data[
-    [prepared$id_var]
-  ]
+  ids <- prepared$data[[prepared$id_var]]
   
   rows <- list()
   counter <- 1L
@@ -599,9 +532,7 @@ run_mis_audit <- function(
     )
   ) {
     
-    direction <- direction_values[
-      [direction_name]
-    ]
+    direction <- direction_values[[direction_name]]
     
     previous_mis_set <- NULL
     
@@ -690,71 +621,6 @@ run_mis_audit <- function(
         )
       }
       
-      
-      # ----------------------------------------------------------------------
-      # Fast/greedy benchmark
-      # ----------------------------------------------------------------------
-      
-      greedy_set <- integer(0)
-      
-      greedy_refit <- list(
-        valid = FALSE,
-        beta = NA_real_,
-        n = NA_integer_,
-        error = NA_character_
-      )
-      
-      beta_greedy <- NA_real_
-      delta_greedy <- NA_real_
-      abs_delta_greedy <- NA_real_
-      jaccard <- NA_real_
-      
-      if (
-        isTRUE(
-          prepared$spec$run_greedy
-        )
-      ) {
-        
-        greedy_raw <- greedy_fn(
-          mod,
-          pos = target_pos,
-          sign = direction,
-          k = k
-        )
-        
-        greedy_set <- .audit_extract_indices(
-          result = greedy_raw,
-          k = k,
-          n = n,
-          method = "Greedy"
-        )
-        
-        greedy_refit <- .audit_refit_after_delete(
-          prepared,
-          greedy_set
-        )
-        
-        beta_greedy <- greedy_refit$beta
-        
-        if (is.finite(beta_greedy)) {
-          
-          delta_greedy <-
-            beta_greedy -
-            beta0
-          
-          abs_delta_greedy <-
-            abs(
-              delta_greedy
-            )
-        }
-        
-        jaccard <- audit_jaccard(
-          mis_set,
-          greedy_set
-        )
-      }
-      
-      
       row <- data.frame(
         study_id =
           prepared$spec$study_id,
@@ -795,24 +661,6 @@ run_mis_audit <- function(
         refit_error_mis =
           mis_refit$error,
         
-        beta_greedy =
-          beta_greedy,
-        
-        delta_greedy =
-          delta_greedy,
-        
-        abs_delta_greedy =
-          abs_delta_greedy,
-        
-        valid_greedy =
-          greedy_refit$valid,
-        
-        refit_error_greedy =
-          greedy_refit$error,
-        
-        jaccard_greedy =
-          jaccard,
-        
         nested_mis =
           nested_mis,
         
@@ -830,20 +678,6 @@ run_mis_audit <- function(
         list(
           ids[
             mis_set
-          ]
-        )
-      )
-      
-      row$greedy_positions <- I(
-        list(
-          greedy_set
-        )
-      )
-      
-      row$greedy_ids <- I(
-        list(
-          ids[
-            greedy_set
           ]
         )
       )
@@ -940,10 +774,7 @@ run_mis_audit <- function(
         prepared$spec$max_fraction,
       
       k_grid =
-        k_grid,
-      
-      run_greedy =
-        prepared$spec$run_greedy
+        k_grid
     )
   )
   

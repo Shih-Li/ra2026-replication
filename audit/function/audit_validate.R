@@ -178,8 +178,7 @@ audit_spec <- function(
     expected_n = NULL,
     beta_tolerance = 1e-8,
     k_grid = NULL,
-    max_fraction = 0.10,
-    run_greedy = TRUE
+    max_fraction = 0.10
 ) {
   
   list(
@@ -219,9 +218,7 @@ audit_spec <- function(
     
     # Deletion path.
     k_grid = k_grid,
-    max_fraction = max_fraction,
-    
-    run_greedy = run_greedy
+    max_fraction = max_fraction
   )
 }
 
@@ -342,20 +339,6 @@ audit_validate_spec <- function(spec) {
     lower = .Machine$double.eps,
     upper = 0.99
   )
-  
-  if (is.null(spec$run_greedy)) {
-    spec$run_greedy <- TRUE
-  }
-  
-  if (
-    !is.logical(spec$run_greedy) ||
-    length(spec$run_greedy) != 1L ||
-    is.na(spec$run_greedy)
-  ) {
-    .audit_stop(
-      "`run_greedy` must be TRUE or FALSE."
-    )
-  }
   
   if (!is.null(spec$expected_beta)) {
     

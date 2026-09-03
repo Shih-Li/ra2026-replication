@@ -37,9 +37,7 @@ audit_path_for_csv <- function(
   
   list_columns <- c(
     "mis_positions",
-    "mis_ids",
-    "greedy_positions",
-    "greedy_ids"
+    "mis_ids"
   )
   
   for (nm in list_columns) {
@@ -69,73 +67,46 @@ audit_ids_long <- function(
   path <- audit$path
   
   rows <- list()
-  
   z <- 1L
   
   for (i in seq_len(nrow(path))) {
     
-    methods <- c(
-      "MIS",
-      "Greedy"
+    positions <- path$mis_positions[[i]]
+    ids <- path$mis_ids[[i]]
+    
+    if (length(ids) == 0L) {
+      next
+    }
+    
+    rows[[z]] <- data.frame(
+      study_id =
+        path$study_id[i],
+      
+      estimand_id =
+        path$estimand_id[i],
+      
+      target =
+        path$target[i],
+      
+      k =
+        path$k[i],
+      
+      removal_fraction =
+        path$removal_fraction[i],
+      
+      direction =
+        path$direction[i],
+      
+      position =
+        as.integer(positions),
+      
+      observation_id =
+        as.character(ids),
+      
+      stringsAsFactors = FALSE
     )
     
-    for (method in methods) {
-      
-      if (method == "MIS") {
-        
-        positions <-
-          path$mis_positions[[i]]
-        
-        ids <-
-          path$mis_ids[[i]]
-        
-      } else {
-        
-        positions <-
-          path$greedy_positions[[i]]
-        
-        ids <-
-          path$greedy_ids[[i]]
-      }
-      
-      if (length(ids) == 0L) {
-        next
-      }
-      
-      rows[[z]] <- data.frame(
-        study_id =
-          path$study_id[i],
-        
-        estimand_id =
-          path$estimand_id[i],
-        
-        target =
-          path$target[i],
-        
-        k =
-          path$k[i],
-        
-        direction =
-          path$direction[i],
-        
-        method =
-          method,
-        
-        position =
-          as.integer(
-            positions
-          ),
-        
-        observation_id =
-          as.character(
-            ids
-          ),
-        
-        stringsAsFactors = FALSE
-      )
-      
-      z <- z + 1L
-    }
+    z <- z + 1L
   }
   
   if (length(rows) == 0L) {
@@ -146,8 +117,8 @@ audit_ids_long <- function(
         estimand_id = character(),
         target = character(),
         k = integer(),
+        removal_fraction = numeric(),
         direction = character(),
-        method = character(),
         position = integer(),
         observation_id = character(),
         stringsAsFactors = FALSE
