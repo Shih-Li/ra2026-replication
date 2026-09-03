@@ -1,0 +1,19 @@
+文件夹 PATH 列表
+卷序列号为 1A13-4B33
+E:.
+│  .Rhistory
+│  audit.Rproj
+│  list.txt
+│  
+├─function
+│      audit_engine.R
+│      audit_output.R
+│      audit_plot.R
+│      audit_validate.R
+│      dinkelbach_topk.R
+│      
+├─output
+│  └─01_RSPitHUMM
+└─scripts
+        01_RSPitHUMM.R
+        

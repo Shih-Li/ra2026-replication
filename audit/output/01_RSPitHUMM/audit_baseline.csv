@@ -1,0 +1,2 @@
+"study_id","estimand_id","target","id_var","n_input","n_dropped_incomplete","n","p","beta_original","beta_mis_model","beta_difference","protocol_max_fraction","protocol_floor_fraction_n","actual_max_k","N","max_k","max_removal_fraction"
+"01_RSPitHUMM","table1_capital_mobile_disburse","treatment3","source_row_id",2639,0,2639,430,69.2071674949056,69.2071674949048,-0.000000000000795807864051312,0.05,131,131,2639,131,0.0496400151572565
