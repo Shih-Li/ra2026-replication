@@ -1,0 +1,2 @@
+"study_id","estimand_id","target","n","p","beta_original","max_k","max_removal_fraction","max_relative_change","min_k_25pct","min_fraction_25pct","direction_25pct","min_k_50pct","min_fraction_50pct","direction_50pct","min_k_cross_zero","min_fraction_cross_zero","direction_cross_zero","min_k_sign_flip","min_fraction_sign_flip","direction_sign_flip","non_nested_events","N"
+"02_LMDIVUiSL","table1_col1_door_to_door","treat_dtd",12096,52,0.293467787694696,604,0.0499338624338624,0.595693419242971,253,0.0209160052910053,"Increase",505,0.0417493386243386,"Increase",,,,,,,0,12096

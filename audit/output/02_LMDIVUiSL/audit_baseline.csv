@@ -1,0 +1,2 @@
+"study_id","estimand_id","target","id_var","n_input","n_dropped_incomplete","n","p","beta_original","beta_mis_model","beta_difference","protocol_max_fraction","protocol_floor_fraction_n","actual_max_k","N","max_k","max_removal_fraction"
+"02_LMDIVUiSL","table1_col1_door_to_door","treat_dtd","source_row_id",12096,0,12096,52,0.293467787694696,0.293467787694712,0.0000000000000162647673107585,0.05,604,604,12096,604,0.0499338624338624
