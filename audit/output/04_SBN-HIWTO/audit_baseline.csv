@@ -1,0 +1,2 @@
+"study_id","estimand_id","target","id_var","n_input","n_dropped_incomplete","n","p","beta_original","beta_mis_model","beta_difference","protocol_max_fraction","protocol_floor_fraction_n","actual_max_k","N","max_k","max_removal_fraction"
+"04_SBN-HIWTO","table2_2018_ols_hiv_positive","learnhivpos","source_row_id",2332,0,2332,9,-0.156557060370346,-0.156557060370346,0,0.05,116,116,2332,116,0.0497427101200686
