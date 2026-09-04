@@ -1,0 +1,2 @@
+"study_id","estimand_id","target","id_var","n_input","n_dropped_incomplete","n","p","beta_original","beta_mis_model","beta_difference","protocol_max_fraction","protocol_floor_fraction_n","actual_max_k","N","max_k","max_removal_fraction"
+"06_UHGtBtCEoaUWRP","itt_fullspec_bn_employed_treat_HD","treat_HD","source_row_id",1770,0,1770,124,0.0231123123505876,0.0231123123505878,0.000000000000000152655665885959,0.05,88,88,1770,88,0.0497175141242938

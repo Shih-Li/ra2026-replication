@@ -1,0 +1,2 @@
+"study_id","estimand_id","target","id_var","n_input","n_dropped_incomplete","n","p","beta_original","beta_mis_model","beta_difference","protocol_max_fraction","protocol_floor_fraction_n","actual_max_k","N","max_k","max_removal_fraction"
+"05_TPCvIKT","food_no_controls_inkind_minus_equal_value_cash","ik_minus_eq_cash","observation_id",10985,0,10985,6,-0.886054886836973,-0.886054886951027,-0.000000000114053433364347,0.05,549,549,10985,549,0.049977241693218
