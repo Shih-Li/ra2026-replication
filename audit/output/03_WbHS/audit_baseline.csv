@@ -1,0 +1,2 @@
+"study_id","estimand_id","target","id_var","n_input","n_dropped_incomplete","n","p","beta_original","beta_mis_model","beta_difference","protocol_max_fraction","protocol_floor_fraction_n","actual_max_k","N","max_k","max_removal_fraction"
+"03_WbHS","table5_fu1_selfesteem_all","treatment","ID_Participante",634,0,634,52,0.231708688059905,0.231708688059905,0,0.05,31,31,634,31,0.0488958990536278
