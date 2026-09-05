@@ -1,0 +1,2 @@
+"study_id","estimand_id","target","id_var","n_input","n_dropped_incomplete","n","p","beta_original","beta_mis_model","beta_difference","protocol_max_fraction","protocol_floor_fraction_n","actual_max_k","N","max_k","max_removal_fraction"
+"07_SwSIiUS","table2_treated_signup_neighbor_high","neighbor_high","source_row_id",3757,0,3757,14,-0.00975871055537053,-0.00975871055537057,-0.0000000000000000381639164714898,0.05,187,187,3757,187,0.0497737556561086

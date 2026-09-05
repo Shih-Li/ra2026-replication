@@ -1,0 +1,2 @@
+"study_id","estimand_id","target","id_var","n_input","n_dropped_incomplete","n","p","beta_original","beta_mis_model","beta_difference","protocol_max_fraction","protocol_floor_fraction_n","actual_max_k","N","max_k","max_removal_fraction"
+"08_IEoAtF","table3_log_sales_competitor_treatment_spillover","inter4post","source_row_id",8612,0,8612,3176,-0.0855461058717665,-0.0855461058717109,0.0000000000000556082957459125,0.05,430,430,8612,430,0.0499303297724106
