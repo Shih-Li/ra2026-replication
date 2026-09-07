@@ -294,23 +294,53 @@ plot_mis_audit <- function(
   )
   
   
+  # Rows the audit could not evaluate: keep them, but blank the y value so
+  # geom_line() breaks at that k instead of interpolating across a failure.
+  bad_refit <- !plot_data$valid_refit |
+    !is.finite(plot_data$beta_after) |
+    !is.finite(plot_data$delta_beta)
+  
+  n_failed <- sum(bad_refit, na.rm = TRUE)
+  
+  if (n_failed > 0L) {
+    warning(
+      sprintf(
+        "%d refit(s) failed or were non-finite; the line is broken at those k.",
+        n_failed
+      ),
+      call. = FALSE
+    )
+  }
+  
+  plot_data$beta_after[bad_refit] <- NA_real_
+  plot_data$delta_beta[bad_refit] <- NA_real_
+  
   plot_data <- plot_data[
-    plot_data$valid_refit &
-      is.finite(plot_data$k) &
-      is.finite(plot_data$beta_after) &
-      is.finite(plot_data$delta_beta),
+    is.finite(plot_data$k),
     ,
     drop = FALSE
   ]
   
   
-  if (nrow(plot_data) == 0L) {
+  if (all(!is.finite(plot_data$delta_beta))) {
     stop(
       "No valid exact-refit results are available for plotting.",
       call. = FALSE
     )
   }
   
+  anchor <- data.frame(
+    k = 0L,
+    removal_fraction = 0,
+    direction = unique(plot_data$direction),
+    beta_after = beta0,
+    delta_beta = 0,
+    valid_refit = TRUE,
+    nested = NA,
+    stringsAsFactors = FALSE
+  )
+  
+  plot_data <- rbind(anchor, plot_data)
   
   plot_data$direction <- factor(
     plot_data$direction,
@@ -336,8 +366,8 @@ plot_mis_audit <- function(
   # --------------------------------------------------------------------------
   
   zero_candidate <- plot_data[
-    beta0 *
-      plot_data$beta_after <= 0,
+    is.finite(plot_data$beta_after) &
+      beta0 * plot_data$beta_after <= 0,
     ,
     drop = FALSE
   ]
@@ -614,10 +644,10 @@ plot_mis_audit <- function(
   ) +
     
     
-    # Exact-refit MIS paths
+    # Exact-refit paths; NA at a failed k deliberately breaks the line
     ggplot2::geom_line(
       linewidth = 0.9,
-      na.rm = TRUE
+      na.rm = FALSE
     ) +
     
     
@@ -665,7 +695,7 @@ plot_mis_audit <- function(
       
       sec.axis = ggplot2::sec_axis(
         
-        trans = ~ . / n * 100,
+        transform = ~ . / n * 100,
         
         name = "Removal fraction (%)",
         
@@ -760,7 +790,8 @@ plot_mis_audit <- function(
   
   non_nested <- plot_data[
     !is.na(plot_data$nested) &
-      plot_data$nested == FALSE,
+      plot_data$nested == FALSE &
+      is.finite(plot_data$delta_beta),
     ,
     drop = FALSE
   ]

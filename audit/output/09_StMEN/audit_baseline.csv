@@ -1,0 +1,2 @@
+"study_id","estimand_id","target","id_var","n_input","n_dropped_incomplete","n","p","beta_original","beta_mis_model","beta_difference","protocol_max_fraction","protocol_floor_fraction_n","actual_max_k","N","max_k","max_removal_fraction"
+"09_StMEN","shots_per_dollar_postlasso_POOLED_gossip2XSMS2ORgossip3XSMS2ORgossip2XSMS3ORgossip3XSMS3","POOLED_gossip2XSMS2ORgossip3XSMS2ORgossip2XSMS3ORgossip3XSMS3","source_row_id",7370,0,7370,8,0.00401595794827882,0.00401595794827881,-0.0000000000000000138777878078145,0.05,368,368,7370,368,0.049932157394844

@@ -601,6 +601,23 @@ prepare_mis_audit <- function(
     )
   }
   
+  # Share of the target regressor's variation that survives partialling out
+  # the nuisance block. Small values mean the target is nearly absorbed by
+  # the controls/FE, so the deletion problem is ill-conditioned and small
+  # deletion sets can move beta a long way for purely mechanical reasons.
+  x_fwl_prepared <- if (p > 1L) {
+    qr.resid(qr(X[, -target_pos, drop = FALSE]), X[, target_pos])
+  } else {
+    X[, target_pos]
+  }
+  
+  target_partial_share <- sum(x_fwl_prepared^2) /
+    sum((X[, target_pos] - mean(X[, target_pos]))^2)
+  
+  if (isTRUE(verbose)) {
+    message(sprintf("  target partial variance share = %.4f", target_partial_share))
+  }
+  
   
   # --------------------------------------------------------------------------
   # MIS baseline coefficient

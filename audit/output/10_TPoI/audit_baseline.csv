@@ -1,0 +1,2 @@
+"study_id","estimand_id","target","id_var","n_input","n_dropped_incomplete","n","p","beta_original","beta_mis_model","beta_difference","protocol_max_fraction","protocol_floor_fraction_n","actual_max_k","N","max_k","max_removal_fraction"
+"10_TPoI","tableA5_price_support_distribution_information","T1","source_row_id",1819,0,1819,4,-0.116782146310028,-0.116782146310028,0,0.05,90,90,1819,90,0.0494777350192413
