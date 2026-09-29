@@ -1122,7 +1122,7 @@ audit_result$summary$N <-
 
 
 # ------------------------------------------------------------------------------
-# 19. Save standardized outputs
+# 19. Create output directory
 # ------------------------------------------------------------------------------
 
 dir.create(
@@ -1132,17 +1132,505 @@ dir.create(
 )
 
 
+# ==============================================================================
+# Study-specific diagnostic: FE structure after MIS deletion
+# ============================================================================== 
+
+parse_mis_ids_numeric <- function(x) {
+  
+  # In the in-memory audit object, mis_ids is already
+  # a vector containing one ID per selected observation.
+  if (length(x) > 1L) {
+    return(
+      as.numeric(x)
+    )
+  }
+  
+  
+  # Also support the semicolon-delimited representation
+  # used in the saved CSV output.
+  x <- as.character(x)
+  
+  
+  if (
+    length(x) == 0L ||
+    is.na(x) ||
+    !nzchar(x)
+  ) {
+    return(
+      numeric(0)
+    )
+  }
+  
+  
+  as.numeric(
+    trimws(
+      strsplit(
+        x,
+        ";",
+        fixed = TRUE
+      )[[1]]
+    )
+  )
+}
+
+cross_k <- as.integer(
+  audit_result$summary$min_k_cross_zero[[1]]
+)
+
+
+cross_direction <- as.character(
+  audit_result$summary$direction_cross_zero[[1]]
+)
+
+
+cross_row <- audit_result$path[
+  audit_result$path$k == cross_k &
+    as.character(
+      audit_result$path$direction
+    ) == cross_direction,
+  ,
+  drop = FALSE
+]
+
+
+if (nrow(cross_row) != 1L) {
+  stop(
+    "Could not uniquely identify Paper 8 first zero-crossing row.",
+    call. = FALSE
+  )
+}
+
+
+selected_ids <- parse_mis_ids_numeric(
+  cross_row$mis_ids[[1]]
+)
+
+
+if (
+  length(selected_ids) != cross_k ||
+  anyDuplicated(selected_ids)
+) {
+  stop(
+    "Paper 8 zero-crossing MIS IDs do not match k.",
+    call. = FALSE
+  )
+}
+
+selected_flag <- (
+  analysis_sample$source_row_id %in%
+    selected_ids
+)
+
+
+selected_data <- analysis_sample[
+  selected_flag,
+  ,
+  drop = FALSE
+]
+
+
+remaining_data <- analysis_sample[
+  !selected_flag,
+  ,
+  drop = FALSE
+]
+
+
+firm_before <- table(
+  as.character(
+    analysis_sample[[FE_VAR]]
+  )
+)
+
+
+firm_after <- table(
+  as.character(
+    remaining_data[[FE_VAR]]
+  )
+)
+
+
+selected_by_firm <- table(
+  as.character(
+    selected_data[[FE_VAR]]
+  )
+)
+
+
+baseline_singleton_firms <- names(
+  firm_before[
+    firm_before == 1L
+  ]
+)
+
+
+selected_from_baseline_singletons <- sum(
+  as.character(
+    selected_data[[FE_VAR]]
+  ) %in%
+    baseline_singleton_firms
+)
+
+
+after_names <- names(
+  firm_after
+)
+
+
+before_for_remaining <- firm_before[
+  after_names
+]
+
+
+new_singleton_firms <- after_names[
+  firm_after == 1L &
+    before_for_remaining > 1L
+]
+
+
+selected_firm_names <- names(
+  selected_by_firm
+)
+
+
+n_before_selected_firms <- as.integer(
+  firm_before[
+    selected_firm_names
+  ]
+)
+
+
+n_after_selected_firms <- vapply(
+  selected_firm_names,
+  function(f) {
+    
+    if (f %in% names(firm_after)) {
+      as.integer(
+        firm_after[[f]]
+      )
+    } else {
+      0L
+    }
+  },
+  integer(1)
+)
+
+
+selected_firm_diagnostic <- data.frame(
+  firmid =
+    selected_firm_names,
+  
+  n_before =
+    n_before_selected_firms,
+  
+  n_selected =
+    as.integer(
+      selected_by_firm
+    ),
+  
+  n_after =
+    n_after_selected_firms,
+  
+  became_singleton =
+    n_after_selected_firms == 1L &
+    n_before_selected_firms > 1L,
+  
+  fully_deleted =
+    n_after_selected_firms == 0L,
+  
+  stringsAsFactors = FALSE
+)
+
+
+utils::write.csv(
+  selected_firm_diagnostic,
+  file.path(
+    OUTPUT_DIR,
+    "audit_zero_crossing_firm_diagnostics.csv"
+  ),
+  row.names = FALSE,
+  na = ""
+)
+
+cross_refit <- paper_env$fit_ols(
+  data = remaining_data,
+  
+  outcome = OUTCOME,
+  
+  terms = RHS,
+  
+  cluster = CLUSTER_VAR,
+  
+  fe = FE_VAR
+)
+
+
+cross_beta_check <- unname(
+  stats::coef(
+    cross_refit
+  )[[TARGET]]
+)
+
+
+cross_fixest_n <- as.integer(
+  stats::nobs(
+    cross_refit
+  )
+)
+
+
+cross_reported_n <- attr(
+  cross_refit,
+  "ra_report_n"
+)
+
+
+baseline_auto_removed <- (
+  nrow(
+    analysis_sample
+  ) -
+    N_fixest
+)
+
+
+post_delete_auto_removed <- (
+  nrow(
+    remaining_data
+  ) -
+    cross_fixest_n
+)
+
+
+fe_crossing_summary <- data.frame(
+  k =
+    cross_k,
+  
+  direction =
+    cross_direction,
+  
+  selected_observations =
+    length(
+      selected_ids
+    ),
+  
+  selected_firms =
+    length(
+      unique(
+        selected_data[[FE_VAR]]
+      )
+    ),
+  
+  firms_with_multiple_selected_observations =
+    sum(
+      selected_by_firm > 1L
+    ),
+  
+  maximum_selected_from_one_firm =
+    max(
+      selected_by_firm
+    ),
+  
+  selected_baseline_singletons =
+    selected_from_baseline_singletons,
+  
+  newly_created_singleton_firms =
+    length(
+      new_singleton_firms
+    ),
+  
+  baseline_complete_n =
+    nrow(
+      analysis_sample
+    ),
+  
+  baseline_fixest_n =
+    N_fixest,
+  
+  remaining_complete_n =
+    nrow(
+      remaining_data
+    ),
+  
+  refit_fixest_n =
+    cross_fixest_n,
+  
+  refit_reported_n =
+    cross_reported_n,
+  
+  baseline_auto_removed =
+    baseline_auto_removed,
+  
+  post_delete_auto_removed =
+    post_delete_auto_removed,
+  
+  additional_auto_removed_after_selected_deletion =
+    post_delete_auto_removed -
+    baseline_auto_removed,
+  
+  effective_fixest_sample_change =
+    N_fixest -
+    cross_fixest_n,
+  
+  beta_before =
+    beta_original,
+  
+  beta_after_audit =
+    cross_row$beta_after[[1]],
+  
+  beta_after_check =
+    cross_beta_check,
+  
+  beta_check_difference =
+    cross_beta_check -
+    cross_row$beta_after[[1]],
+  
+  stringsAsFactors = FALSE
+)
+
+
+utils::write.csv(
+  fe_crossing_summary,
+  file.path(
+    OUTPUT_DIR,
+    "audit_zero_crossing_fe_summary.csv"
+  ),
+  row.names = FALSE,
+  na = ""
+)
+
+display_path <- audit_result$path[
+  as.character(
+    audit_result$path$direction
+  ) == cross_direction &
+    audit_result$path$k <= 40,
+  ,
+  drop = FALSE
+]
+
+
+fe_path_diagnostic <- lapply(
+  seq_len(
+    nrow(
+      display_path
+    )
+  ),
+  function(j) {
+    
+    ids <- parse_mis_ids_numeric(
+      display_path$mis_ids[[j]]
+    )
+    
+    
+    selected <- analysis_sample[
+      analysis_sample$source_row_id %in% ids,
+      ,
+      drop = FALSE
+    ]
+    
+    
+    remaining <- analysis_sample[
+      !analysis_sample$source_row_id %in% ids,
+      ,
+      drop = FALSE
+    ]
+    
+    
+    after_counts <- table(
+      as.character(
+        remaining[[FE_VAR]]
+      )
+    )
+    
+    
+    before_match <- firm_before[
+      names(
+        after_counts
+      )
+    ]
+    
+    
+    selected_counts <- table(
+      as.character(
+        selected[[FE_VAR]]
+      )
+    )
+    
+    
+    newly_singleton <- sum(
+      after_counts == 1L &
+        before_match > 1L
+    )
+    
+    
+    data.frame(
+      k =
+        display_path$k[[j]],
+      
+      direction =
+        as.character(
+          display_path$direction[[j]]
+        ),
+      
+      selected_observations =
+        length(
+          ids
+        ),
+      
+      selected_firms =
+        length(
+          selected_counts
+        ),
+      
+      firms_with_multiple_selected =
+        sum(
+          selected_counts > 1L
+        ),
+      
+      maximum_selected_from_one_firm =
+        max(
+          selected_counts
+        ),
+      
+      newly_created_singleton_firms =
+        newly_singleton,
+      
+      stringsAsFactors = FALSE
+    )
+  }
+)
+
+
+fe_path_diagnostic <- do.call(
+  rbind,
+  fe_path_diagnostic
+)
+
+
+utils::write.csv(
+  fe_path_diagnostic,
+  file.path(
+    OUTPUT_DIR,
+    "audit_display_path_fe_diagnostics.csv"
+  ),
+  row.names = FALSE,
+  na = ""
+)
+
+
+# ------------------------------------------------------------------------------
+# 20. Save standardized outputs
+# ------------------------------------------------------------------------------
+
 saved_files <- save_mis_audit(
   audit = audit_result,
-  
   output_dir = OUTPUT_DIR,
-  
   prefix = "audit"
 )
 
 
 # ------------------------------------------------------------------------------
-# 20. Ensure influential-ID output contains model_row_position
+# 21. Ensure influential-ID output contains model_row_position
 # ------------------------------------------------------------------------------
 
 ids_file <- saved_files$influential_ids
@@ -1174,7 +1662,7 @@ utils::write.csv(
 
 
 # ------------------------------------------------------------------------------
-# 21. Standard MIS figure
+# 22. Standard MIS figure
 # ------------------------------------------------------------------------------
 
 plot_mis_audit(
@@ -1192,7 +1680,7 @@ plot_mis_audit(
 
 
 # ------------------------------------------------------------------------------
-# 22. Final console report
+# 23. Final console report
 # ------------------------------------------------------------------------------
 
 message("")

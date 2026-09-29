@@ -1,0 +1,3 @@
+"direction","observation_id","cve_viv","wave","locality","treatment_arm","ik","cash","fu","ik_fu","cash_fu","pc_exp_food","outcome_percentile_full","outcome_percentile_arm_wave","beta_before","se_before","beta_after_audit","beta_after_check","se_after","beta_check_difference","sign_flip"
+"Increase","VER302218__wave_2","VER302218",2,"301420029","Cash",0,1,1,0,1,2081.97642894733,0.999362767410105,1,-0.886054886950902,19.1190152591127,0.67370278863018,0.67370278863018,18.7880983356931,0,TRUE
+"Decrease","VER302925__wave_1","VER302925",1,"301960007","Cash",0,1,0,0,0,2546.53359331393,0.999817933545744,1,-0.886054886950902,19.1190152591127,-3.01359752921235,-3.01359752921235,19.2233648258044,0,FALSE

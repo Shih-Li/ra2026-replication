@@ -1296,7 +1296,7 @@ audit_result$summary$N <-
 
 
 # ------------------------------------------------------------------------------
-# 21. Save standardized outputs
+# 21. Create output directory
 # ------------------------------------------------------------------------------
 
 dir.create(
@@ -1306,12 +1306,305 @@ dir.create(
 )
 
 
+# ==============================================================================
+# Study-specific diagnostic: k = 1 influential observations
+# ==============================================================================
+parse_mis_ids <- function(x) {
+  x <- as.character(x)
+  
+  if (length(x) != 1L || is.na(x) || !nzchar(x)) {
+    return(character(0))
+  }
+  
+  trimws(
+    strsplit(
+      x,
+      ";",
+      fixed = TRUE
+    )[[1]]
+  )
+}
+
+
+path_k1 <- audit_result$path[
+  audit_result$path$k == 1 &
+    audit_result$path$valid_refit %in% TRUE,
+  ,
+  drop = FALSE
+]
+
+
+if (nrow(path_k1) == 0L) {
+  stop(
+    "Paper 5 diagnostic found no valid k = 1 audit rows.",
+    call. = FALSE
+  )
+}
+
+
+baseline_target_se <- unname(
+  fixest::se(
+    refit_baseline
+  )[[TARGET]]
+)
+
+
+k1_diagnostics <- lapply(
+  seq_len(
+    nrow(
+      path_k1
+    )
+  ),
+  function(j) {
+    
+    selected_id <- parse_mis_ids(
+      path_k1$mis_ids[[j]]
+    )
+    
+    
+    if (length(selected_id) != 1L) {
+      stop(
+        "Expected exactly one MIS ID at k = 1.",
+        call. = FALSE
+      )
+    }
+    
+    
+    row_index <- match(
+      selected_id,
+      as.character(
+        analysis_sample$observation_id
+      )
+    )
+    
+    
+    if (is.na(row_index)) {
+      stop(
+        "Selected Paper 5 ID is absent from analysis_sample: ",
+        selected_id,
+        call. = FALSE
+      )
+    }
+    
+    
+    obs <- analysis_sample[
+      row_index,
+      ,
+      drop = FALSE
+    ]
+    
+    
+    keep <- (
+      as.character(
+        analysis_sample$observation_id
+      ) != selected_id
+    )
+    
+    
+    fit_drop <- paper_refit(
+      analysis_sample[
+        keep,
+        ,
+        drop = FALSE
+      ],
+      NULL
+    )
+    
+    
+    beta_drop <- unname(
+      stats::coef(
+        fit_drop
+      )[[TARGET]]
+    )
+    
+    
+    se_drop <- unname(
+      fixest::se(
+        fit_drop
+      )[[TARGET]]
+    )
+    
+    
+    treatment_arm <- if (
+      isTRUE(
+        obs$ik[[1]] == 1
+      )
+    ) {
+      "In-kind"
+    } else if (
+      isTRUE(
+        obs$cash[[1]] == 1
+      )
+    ) {
+      "Cash"
+    } else {
+      "Control"
+    }
+    
+    
+    outcome_value <- as.numeric(
+      obs[[OUTCOME]][[1]]
+    )
+    
+    
+    full_percentile <- mean(
+      analysis_sample[[OUTCOME]] <= outcome_value,
+      na.rm = TRUE
+    )
+    
+    
+    same_cell <- (
+      analysis_sample$ik == obs$ik[[1]] &
+        analysis_sample$cash == obs$cash[[1]] &
+        analysis_sample$fu == obs$fu[[1]]
+    )
+    
+    
+    cell_percentile <- mean(
+      analysis_sample[[OUTCOME]][same_cell] <= outcome_value,
+      na.rm = TRUE
+    )
+    
+    
+    data.frame(
+      direction = as.character(
+        path_k1$direction[[j]]
+      ),
+      
+      observation_id = selected_id,
+      
+      cve_viv = as.character(
+        obs$cve_viv[[1]]
+      ),
+      
+      wave = obs$etapa[[1]],
+      
+      locality = as.character(
+        obs$id_loc[[1]]
+      ),
+      
+      treatment_arm = treatment_arm,
+      
+      ik = obs$ik[[1]],
+      cash = obs$cash[[1]],
+      fu = obs$fu[[1]],
+      ik_fu = obs$ik_fu[[1]],
+      cash_fu = obs$cash_fu[[1]],
+      
+      pc_exp_food = outcome_value,
+      
+      outcome_percentile_full =
+        full_percentile,
+      
+      outcome_percentile_arm_wave =
+        cell_percentile,
+      
+      beta_before =
+        beta_original,
+      
+      se_before =
+        baseline_target_se,
+      
+      beta_after_audit =
+        path_k1$beta_after[[j]],
+      
+      beta_after_check =
+        beta_drop,
+      
+      se_after =
+        se_drop,
+      
+      beta_check_difference =
+        beta_drop -
+        path_k1$beta_after[[j]],
+      
+      sign_flip =
+        sign(beta_drop) !=
+        sign(beta_original),
+      
+      stringsAsFactors = FALSE
+    )
+  }
+)
+
+
+k1_diagnostics <- do.call(
+  rbind,
+  k1_diagnostics
+)
+
+
+utils::write.csv(
+  k1_diagnostics,
+  file.path(
+    OUTPUT_DIR,
+    "audit_k1_observation_diagnostics.csv"
+  ),
+  row.names = FALSE,
+  na = ""
+)
+
+# Household-wave history for the k = 1 selected households
+
+selected_households <- unique(
+  k1_diagnostics$cve_viv
+)
+
+
+history_vars <- intersect(
+  c(
+    "observation_id",
+    "cve_viv",
+    "etapa",
+    "pc_exp_food",
+    "ik",
+    "cash",
+    "fu",
+    "ik_fu",
+    "cash_fu",
+    "id_loc",
+    "special_etapa1"
+  ),
+  names(
+    analysis_all
+  )
+)
+
+
+k1_household_history <- analysis_all[
+  as.character(
+    analysis_all$cve_viv
+  ) %in% selected_households,
+  history_vars,
+  drop = FALSE
+]
+
+
+k1_household_history <- k1_household_history[
+  order(
+    k1_household_history$cve_viv,
+    k1_household_history$etapa
+  ),
+  ,
+  drop = FALSE
+]
+
+
+utils::write.csv(
+  k1_household_history,
+  file.path(
+    OUTPUT_DIR,
+    "audit_k1_household_history.csv"
+  ),
+  row.names = FALSE,
+  na = ""
+)
+
 saved_files <- save_mis_audit(
   audit = audit_result,
   output_dir = OUTPUT_DIR,
   prefix = "audit"
 )
-
 
 # ------------------------------------------------------------------------------
 # 22. Ensure influential-ID output contains model_row_position
