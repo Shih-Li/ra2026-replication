@@ -484,6 +484,23 @@ se_original <- unname(
   hc1_se[[TARGET]]
 )
 
+if (
+  length(se_original) != 1L ||
+  !is.finite(se_original) ||
+  se_original <= 0
+) {
+  
+  stop(
+    "Could not recover a finite positive original HC1 standard error.",
+    call. = FALSE
+  )
+}
+
+
+t_original <- (
+  beta_original /
+    se_original
+)
 
 # ------------------------------------------------------------------------------
 # 8. Validate against the directly validated Table A5 artifact
@@ -833,6 +850,12 @@ audit_result <- run_mis_audit(
   spec = spec,
   verbose = TRUE
 )
+
+audit_result$baseline$se_original <-
+  se_original
+
+audit_result$baseline$t_original <-
+  t_original
 
 
 # ------------------------------------------------------------------------------

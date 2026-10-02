@@ -821,6 +821,41 @@ beta_original <- unname(
   original_coef[[TARGET_ORIGINAL]]
 )
 
+original_vcov <- stats::vcov(
+  original_fit
+)
+
+
+original_se <- sqrt(
+  diag(
+    original_vcov
+  )
+)
+
+
+se_original <- unname(
+  original_se[[TARGET_ORIGINAL]]
+)
+
+
+if (
+  length(se_original) != 1L ||
+  !is.finite(se_original) ||
+  se_original <= 0
+) {
+  
+  stop(
+    "Could not recover a finite positive original CR0 standard error.",
+    call. = FALSE
+  )
+}
+
+
+t_original <- (
+  beta_original /
+    se_original
+)
+
 if (N_original != nrow(analysis_sample)) {
   stop(
     paste0(
@@ -1259,6 +1294,11 @@ audit_result <- run_mis_audit(
   verbose = TRUE
 )
 
+audit_result$baseline$se_original <-
+  se_original
+
+audit_result$baseline$t_original <-
+  t_original
 
 # ------------------------------------------------------------------------------
 # 19. Restore substantive target label + attach paper-specific specification

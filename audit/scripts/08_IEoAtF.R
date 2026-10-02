@@ -518,6 +518,40 @@ beta_original <- unname(
   original_coef[[TARGET]]
 )
 
+original_vcov <- paper_env$model_vcov(
+  original_fit
+)
+
+
+original_se <- sqrt(
+  diag(
+    original_vcov
+  )
+)
+
+
+se_original <- unname(
+  original_se[[TARGET]]
+)
+
+
+if (
+  length(se_original) != 1L ||
+  !is.finite(se_original) ||
+  se_original <= 0
+) {
+  
+  stop(
+    "Could not recover a finite positive original clustered standard error.",
+    call. = FALSE
+  )
+}
+
+
+t_original <- (
+  beta_original /
+    se_original
+)
 
 # Paper-8 helper stores a Stata-style complete-sample N separately from
 # fixest::nobs(), because fixest may remove singleton FE groups.
@@ -1062,6 +1096,12 @@ audit_result <- run_mis_audit(
   spec = spec,
   verbose = TRUE
 )
+
+audit_result$baseline$se_original <-
+  se_original
+
+audit_result$baseline$t_original <-
+  t_original
 
 
 # ------------------------------------------------------------------------------

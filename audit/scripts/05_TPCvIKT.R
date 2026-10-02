@@ -1196,6 +1196,31 @@ if (
   )
 }
 
+se_original <- unname(
+  fixest::se(
+    refit_baseline
+  )[[TARGET]]
+)
+
+
+if (
+  length(se_original) != 1L ||
+  !is.finite(se_original) ||
+  se_original <= 0
+) {
+  
+  stop(
+    "Could not recover a finite positive original contrast standard error.",
+    call. = FALSE
+  )
+}
+
+
+t_original <- (
+  beta_original /
+    se_original
+)
+
 
 # ------------------------------------------------------------------------------
 # 18. Define MIS audit specification
@@ -1237,6 +1262,11 @@ audit_result <- run_mis_audit(
   verbose = TRUE
 )
 
+audit_result$baseline$se_original <-
+  se_original
+
+audit_result$baseline$t_original <-
+  t_original
 
 # ------------------------------------------------------------------------------
 # 20. Standardized output aliases
@@ -1342,11 +1372,8 @@ if (nrow(path_k1) == 0L) {
 }
 
 
-baseline_target_se <- unname(
-  fixest::se(
-    refit_baseline
-  )[[TARGET]]
-)
+baseline_target_se <-
+  se_original
 
 
 k1_diagnostics <- lapply(

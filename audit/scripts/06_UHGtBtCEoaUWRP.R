@@ -728,6 +728,30 @@ beta_original <- unname(
   original_coef[[TARGET_ORIGINAL]]
 )
 
+se_original <- unname(
+  fixest::se(
+    original_fit
+  )[[TARGET_ORIGINAL]]
+)
+
+
+if (
+  length(se_original) != 1L ||
+  !is.finite(se_original) ||
+  se_original <= 0
+) {
+  
+  stop(
+    "Could not recover a finite positive original standard error.",
+    call. = FALSE
+  )
+}
+
+
+t_original <- (
+  beta_original /
+    se_original
+)
 
 # ------------------------------------------------------------------------------
 # 12. Validate ORIGINAL REPLICATION
@@ -1203,6 +1227,11 @@ audit_result <- run_mis_audit(
   verbose = TRUE
 )
 
+audit_result$baseline$se_original <-
+  se_original
+
+audit_result$baseline$t_original <-
+  t_original
 
 # ------------------------------------------------------------------------------
 # 19. Restore substantive target label + standardized aliases
